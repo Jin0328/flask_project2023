@@ -1,0 +1,215 @@
+*{
+box-sizing: border-box;
+}
+
+body {
+font-size: 20px;
+width:1500px;
+height:1000px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 중앙 정렬을 위한 스타일 추가 */
+}
+
+.navbar li {
+    display: inline-block; /* 텍스트를 가로로 나란히 배치 */
+    margin: 0 10px; /* 텍스트 간격 조정 */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+h1{
+margin:100px; 
+text-align:center;
+font-size:36px;
+font-weight:bold;
+color:rgb(0,70,42,0.67);
+}
+
+h2{
+position:absolute;
+left:308px;
+top:173px;
+text-align:center;
+font-size:24px;
+}
+
+hr{
+position:absolute;
+left:306px;
+top:227.99px;
+width:870.04px;
+}
+
+.checkbox{
+position:absolute;
+left:306px;
+width:35px;
+height:35px;
+}
+
+label{
+margin:0px 10px;
+position:absolute;
+left:344px;
+font-size:24px;
+text-align: center;
+line-height:35px;
+}
+
+#agreeAll{
+top:256px;
+}
+
+label[for="agreeAll"]{
+top:256px;
+font-size:24px;
+font-weight:bold;
+}
+
+#agreeTermsOfServices{
+top:301px;
+}
+
+label[for="agreeTermsOfServices"]{
+top:301px;
+}
+
+span{
+position:absolute;
+left:300px;
+width: 900px;
+height:120px;
+overflow:scroll;
+border: 1px solid #7d7777;
+}
+
+#termsOfService{
+top:346px;
+}
+
+#agreePrivacyPolicy{
+top:473px;
+}
+
+label[for="agreePrivacyPolicy"]{
+top:473px;
+}
+
+#privacyPolicy{
+top: 521px;
+}
+
+#agreePromotion{
+top:651px;
+}
+
+label[for="agreePromotion"]{
+top:651px;
+}
+
+#promotion{
+top: 696px;
+}
+
+#smsPromotion{
+position:absolute;
+left:306px;
+top:826px;
+width:30px;
+height:30px;
+}
+
+label[for="smsPromotion"]{
+position:absolute;
+left:344px;
+top:826px;
+}
+
+#emailPromotion{
+position:absolute;
+left:655px;
+top:826px;
+width:30px;
+height:30px;
+}
+
+label[for="emailPromotion"]{
+position:absolute;
+left:693px;
+top:826px;
+}
+
+input[type="submit"]{
+position:absolute;
+left:760px;
+top:900px;
+width:450px;
+height:64px;
+border:1px solid black;
+border-radius:8px;
+background-color:#00462A;
+color:white;
+font-size:24px;
+}
+
+a button{
+position:absolute;
+left:290px;
+top:900px;
+width:450px;
+height:64px;
+border:1px solid black;
+border-radius:8px;
+background-color:white;
+font-size:24px;
+}
+
+a{
+text-decoration:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

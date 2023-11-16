@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0;" />
+<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+{# <link href="login.css" rel="stylesheet" /> #}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<title>이화상점: 로그인</title>
+</head>
+<body>
+<div class="navbar">
+        <ul>
+            {% if session['id'] %}
+            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+            <li><a href="/login">로그인</a></li>
+            {% endif %}
+            <li><a href="/">판매상품</a></li>
+            <li><a href="/certification">이화인증</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+    </header>
+    <main>
+        <section>
+
+            {% with mesg = get_flashed_messages() %}
+            {% if mesg != [] %}
+            <script>alert("{{ mesg[0] }}")</script>
+            {% endif %}
+            {% endwith %}
+            <h1>이화상점</h1>
+
+            <form action="/login_confirm" method="POST">
+                <input type="text" class="loginInput" id="id" name = "id" placeholder="아이디" required style="font-size:20px;" />
+                <input type="password" class="loginInput" id="password" name = "pw" placeholder="패스워드" required style="font-size:20px;" />
+                <input type="submit" value="로그인" />
+            </form>
+            <a id="signUp" href="{{ url_for('static', filename='이용약관.html') }}">회원가입</a>
+        </section>
+    </main>
+</body>
+</html>

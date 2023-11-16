@@ -1,0 +1,149 @@
+*{
+box-sizing: border-box;
+}
+
+body {
+font-size: 20px;
+width:1500px;
+height:1000px
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 중앙 정렬을 위한 스타일 추가 */
+}
+
+.navbar li {
+    display: inline-block; /* 텍스트를 가로로 나란히 배치 */
+    margin: 0 10px; /* 텍스트 간격 조정 */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+h1{
+margin:100px 0px 40px 0px;
+text-align:center;
+font-size:36px;
+font-weight:bold;
+}
+
+#hilighting{
+position:absolute;
+left:680px;
+top:135px;
+width:150px;
+height:10px;
+background-color:rgb(4,120,30,0.4);
+border-radius:8px;
+}
+
+p{
+text-align:center;
+margin:5px;
+}
+
+#popularStoreImg{
+position:absolute;
+left:361px;
+top:501px;
+width:107px;
+height:107px;
+}
+
+#reviewRateImg{
+position:absolute;
+left:657px;
+top:501px;
+width:107px;
+height:107px;
+}
+
+#reviewNumImg{
+position:absolute;
+left:954px;
+top:501px;
+width:107px;
+height:107px;
+}
+
+#sellNumImg{
+position:absolute;
+left:361px;
+top:708px;
+width:107px;
+height:107px;
+}
+
+#ewhaCertificationImg{
+position:absolute;
+left:666px;
+top:708px;
+width:80px;
+height:80px;
+}
+
+#popularStore{
+position:absolute;
+left:361px;
+top:591px;
+font-size:20px;
+}
+
+#reviewRate{
+position:absolute;
+left:657px;
+top:591px;
+font-size:20px;
+}
+
+#reviewNum{
+position:absolute;
+left:954px;
+top:591px;
+font-size:20px;
+}
+
+#sellNum{
+position:absolute;
+left:361px;
+top:798px;
+font-size:20px;
+}
+
+#ewhaCertification{
+position:absolute;
+left:657px;
+top:797px;
+font-size:20px;
+}
+
+span span{
+font-size:16px;
+color:#7d7777;
+}
+
+
+
+

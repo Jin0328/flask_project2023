@@ -1,0 +1,190 @@
+*{
+box-sizing: border-box;
+}
+
+body {
+font-size: 20px;
+width:1500px;
+height:800px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left:0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 중앙 정렬을 위한 스타일 추가 */
+}
+
+.navbar li {
+    display: inline-block; /* 텍스트를 가로로 나란히 배치 */
+    margin: 0 10px; /* 텍스트 간격 조정 */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+h1{
+position:absolute;
+left:633px;
+top:100px;
+font-size:36px;
+font-weight:bold;
+color:rgb(0,70,42,0.67);
+}
+
+h2{
+position:absolute;
+left:104px;
+top:160px;
+font-size:24px;
+}
+
+mark{
+background-color:rgb(0,70,42,0.37);
+border-radius:6px;
+}
+
+img[src="./image/ewhaCertificationMark.png"]{
+position:absolute;
+left:251px;
+top:180px;
+width:35px;
+height:35px;
+}
+
+#certificationExample{
+position: absolute;
+left:106px;
+top:224px;
+}
+
+img[src="./image/ewhaMarketExample.png"]{
+position:absolute;
+left:84px;
+top:275px;
+width:671px;
+height:408px;
+}
+
+#hilighting{
+width:280px;
+height:24px;
+position:absolute;
+left:442px;
+top:460px;
+border: 7px solid rgb(0,70,42,0.37);
+
+border-radius:5px;
+}
+
+#moreInfo{
+position:absolute;
+left:1270px;
+top:220px;
+
+}
+
+a.moreInfo{
+position:absolute;
+left:1265px;
+top:248px;
+background-color:rgb(0,70,42,0.37);
+text-decoration:none;
+border-radius:6px;
+color:black;
+padding:7px 5px;
+
+}
+
+#name{
+width:446px;
+height:44px;
+position:absolute;
+left:835px;
+top:323px;
+border:1px solid #7d7777;
+}
+
+#major{
+width:446px;
+height:44px;
+position:absolute;
+left:835px;
+top:396px;
+border:1px solid #7d7777;
+}
+
+.questionList{
+width:446px;
+height:44px;
+position:absolute;
+left:835px;
+top:475px;
+border:1px solid #7d7777;
+text-align:left;
+line-height:44px;
+font-size:18px;
+}
+
+img[src="./image/refreshButton.png"]{
+position:absolute;
+left:1295px;
+top:483px;
+width:30px;
+height:30px;
+
+}
+
+#answer{
+width:446px;
+height:44px;
+position:absolute;
+left:835px;
+top:554px;
+border:1px solid #7d7777;
+}
+
+input[type="submit"]{
+position:absolute;
+left:1136px;
+top:627px;
+background-color:#00462A;
+width:147px;
+height:52px;
+color:white;
+border-radius:6px;
+font-size:23px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

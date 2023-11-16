@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0;" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="agreement.css" rel="stylesheet" />
+    <title>이화상점: 회원가입 약관 동의</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+        <ul>
+            <li><a href="/login">로그인</a></li>
+            <li><a href="agreement.html">회원가입</a></li>
+            <li><a href="#">판매상품</a></li>
+            <li><a href="ewhaCertification.html">이화인증</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+    </header>
+
+    <main>
+        <section>
+            <h1>이화상점</h1>
+            <h2>전체동의</h2>
+            <hr>
+            <form action="/signup" method="get">
+                <input type="checkbox" class="checkbox" id="agreeAll" />
+                <label class="label" for="agreeAll">이용약관, 개인정보 수집 및 이용, 쇼핑 정보 수신(선택)에 모두 동의합니다.</label>
+
+                <input type="checkbox" class="checkbox" id="agreeTermsOfServices" required />
+                <label class="label" for="agreeTermsOfServices">이용약관 동의 (필수)</label>
+                <span id="termsOfService">
+                    여러분을 환영합니다. 이화상점을 이용해주셔서 감사합니다. 본 약관은 다양한 이화상점 서비스의 이용과 관련하여
+                    서비스를 제공하는 이화상점과 이를 이용하는 회원 또는 비회원과의 관계를 설명하며, 아울러 여러분의 이화상점 서비스 이용에
+                    도움이 될 수 있는 유익한 정보를 포함하고 있습니다. 이화상점 서비스를 이용하시거나 이화상점 서비스 회원으로 가입하실 경우
+                    여러분은 본 약관 및 관련 운영 정책을 확인하거나 동의하게 되므로, 잠시 시간을 내시어 주의 깊게
+                    살펴봐 주시기 바랍니다.
+                </span>
+
+                <input type="checkbox" class="checkbox" id="agreePrivacyPolicy" required />
+                <label class="label" for="agreePrivacyPolicy">개인정보 수집 및 이용 동의 (필수)</label>
+                <span id="privacyPolicy">
+                    개인정보보호법에 따라 이화상점에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적,
+                    개인정보의 보유 및 이용기간, 동의 거부권 및 동의 거부 시 불이익에 관한 사항을 안내 드리오니 자세히 읽은 후 동의해주시기 바랍니다.
+                </span>
+
+                <input type="checkbox" class="checkbox" id="agreePromotion" />
+                <label class="label" for="agreePromotion">쇼핑 정보 수신 동의 (선택)</label>
+                <span id="promotion">
+                    이화상점에서 제공하는 이벤트/혜택 등 다양한 정보를 휴대전화, 이메일로 받아보실 수 있습니다. 일부 서비스의 경우,
+                    개별 서비스에 대해 별도 수신 동의를 받을 수 있으며, 이때에도 수신 동의에 대해 별도로 안내하고 동의를 받습니다.
+                </span>
+
+                <input type="checkbox" class="checkbox" id="smsPromotion" />
+                <label for="smsPromotion">SMS 수신 동의 (선택)</label>
+
+                <input type="checkbox" class="checkbox" id="emailPromotion" />
+                <label for="emailPromotion">이메일 수신 동의 (선택)</label>
+
+                <input type="submit" value="확인" />
+            </form>
+            <a href="로그인.html"><button>취소</button></a>
+        </section>
+    </main>
+</body>
+</html>

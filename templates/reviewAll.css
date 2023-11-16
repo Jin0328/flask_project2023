@@ -1,0 +1,265 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.divRate {
+    position: relative;
+    top: 70px;
+    height: 250px;
+}
+
+.divRate p.title {
+    font-size: 23px;
+    font-weight: bold;
+    position: relative;
+    left: 70px;
+    top: 10px;
+}
+
+.topImg {
+    float: left;
+    width: 300px;
+    position: relative;
+    left: 300px;
+    bottom: 40px;
+}
+
+.rateAll {
+    position: relative;
+    left: 400px;
+    bottom: 20px;
+    font-size: 23px;
+}
+
+progress.all {
+    height: 30px;
+}
+
+::-webkit-progress-bar {
+    background-color: rgba(217, 217, 217, 1);
+}
+
+::-webkit-progress-value {
+    background-color: rgba(12, 166, 105, 1);
+}
+
+.rate {
+    font-size: 20px;
+    position: relative;
+    left: 650px;
+    bottom: 65px;
+    font-weight: bold;
+}
+
+progress.ind {
+    height: 20px;
+}
+
+.rateInd {
+    float: right;
+    position: relative;
+    left: -100px;
+    bottom: 200px;
+}
+
+.rateInd span {
+    position: relative;
+    left: -10px;
+    font-weight: bold;
+    line-height: 200%;
+}
+
+.divMedia {
+    position: relative;
+    top: 30px;
+    height: 100px;
+}
+
+.subTitle {
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    left: 85px;
+    top: 10px;
+}
+
+.divMedia img {
+    width: 195px;
+    height: 161px;
+    position: relative;
+    left: 90px;
+    top: 10px;
+    border-radius: 10px;
+}
+
+.divMedia a span {
+    float: right;
+    position: relative;
+    left: -100px;
+    bottom: 180px;
+}
+
+.divMedia a:link {
+    color: rgb(16, 112, 74);
+}
+
+.divAll {
+    position: relative;
+    top: 150px;
+    height: 400px;
+}
+
+.divAll img {
+    width: 200px;
+    height: 165px;
+    position: relative;
+    left: 80px;
+    top: -30px;
+    margin: 7px;
+    border-radius: 10px;
+    float: left;
+}
+
+#sort {
+    height: 35px;
+    border: none;
+    border-radius: 20px;
+    position: relative;
+    bottom: 38px;
+    left: 230px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+#sort.first {
+    width: 116px;
+    background-color: rgba(5, 202, 124, 0.6);
+}
+
+#sort.second {
+    width: 116px;
+    background-color: rgba(217, 217, 217, 0.6);
+    position: relative;
+    left: 240px;
+}
+
+#sort.third {
+    width: 163px;
+    background-color: rgba(217, 217, 217, 0.6);
+    position: relative;
+    left: 250px;
+}
+
+a.divText {
+    background-color: aqua;
+    position: relative;
+    top: 1000px;
+}
+
+p.title {
+    position: relative;
+    left: 70px;
+    top: 10px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+p.option {
+    position: relative;
+    left: 68px;
+    bottom: 10px;
+    font-size: 18px;
+    color: rgba(90, 90, 90, 1);
+}
+
+p.date {
+    position: relative;
+    left: 70px;
+    bottom: 20px;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 1);
+}
+
+p.ID {
+    font-size: 13px;
+    left: 70px;
+    bottom: 30px;
+    font-weight: bold;
+    position: relative;
+}
+
+.div1 {
+    float: left;
+    position: relative;
+    left: -1265px;
+    top: 100px;
+}
+
+.div2 {
+    float: left;
+    position: relative;
+    left: 235px;
+    bottom: 60px;
+}
+
+.star-ratings {
+    color: #aaa9a9;
+    position: relative;
+    unicode-bidi: bidi-override;
+    width: max-content;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1.3px;
+    -webkit-text-stroke-color: #2b2a29;
+    top: 35px; /* left: 180px; 대신에 여기로 옮김 */
+}
+
+.star-ratings-fill {
+    color: #fff58c;
+    padding: 0;
+    position: absolute;
+    z-index: 6;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-text-fill-color: rgba(12, 166, 105, 1);
+}
+
+.star-ratings-fill span {
+    font-size: 23px;
+}
+
+.divAll a:link {
+    color: black;
+}

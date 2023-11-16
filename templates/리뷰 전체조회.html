@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="reviewAll.css">
+</head>
+<div class="navbar">
+    <ul>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+        <li><a href="/">판매상품</a></li>
+        <li><a href="/certification">이화인증</a></li>
+        <li><a href="#">마이페이지</a></li>
+        <li><a href="#">장바구니</a></li>
+    </ul>
+</div>
+<div class="divRate">
+    <p class="title">이화 키링 | 상품 리뷰</p>
+    <a href="상품상세"><img class="topImg" src="img.jpg"></a>
+    <label class="rateAll">
+        <pre>     총 평점 
+        </pre>
+        <progress class="all" value="4.4" max="5"></progress>
+    </label>
+    <p class="rate">(4.4/5)</p>
+    <label class="rateInd">
+        <span>5점</span>
+        <progress class="ind" value="282" max="337"></progress>
+        <sub>(282)</sub>
+        <span><br>4점</span>
+        <progress class="ind" value="25" max="337"></progress>
+        <sub>(25)</sub>
+        <span><br>3점</span>
+        <progress class="ind" value="10" max="337"></progress>
+        <sub>(10)</sub>
+        <span><br>2점</span>
+        <progress class="ind" value="3" max="337"></progress>
+        <sub>(3)</sub>
+        <span><br>1점</span>
+        <progress class="ind" value="17" max="337"></progress>
+        <sub>(17)</sub>
+    </label>
+</div>
+<div class="divMedia">
+    <p class="subTitle">사진/동영상 리뷰(225)</p>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="전체리뷰">
+        <span>더보기></span>
+    </a>
+</div>
+<div class="divAll">
+    <p class="subTitle">전체 리뷰(337)</p>
+    <input type="button" value="추천순" id="sort" class="first">
+    <input type="button" value="최신순" id="sort" class="second">
+    <input type="button" value="평점 높은 순" id="sort" class="third">
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <a href="각리뷰">
+        <img src="img.jpg">
+    </a>
+    <div class="div1">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+    <div class="div2">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+    <div class="div2" style="position: relative; left: 360px;">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+    <div class="div2" style="position: relative; left: 485px;">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+    <div class="div2" style="position: relative; left: 610px;">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+    <div class="div2" style="position: relative; left: 735px;">
+        <p class="title">리뷰 제목</p>
+        <p class="option">상품명(옵션)</p>
+        <p class="date">2000.00.00</p>
+        <p class="ID">ewha1</p>
+    </div>
+</div>
+<div class="star-ratings">
+    <div class="star-ratings-fill">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+    </div>
+</div>
+<pre style="position: relative; bottom: -100px; left: 60px;">  << < 1   2   3   4   5   6   7 > >>  </pre>
+</html>

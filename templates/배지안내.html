@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0;" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="badgeInfo.css" rel="stylesheet" />
+    <title>이화상점: 이화인인증</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+        <ul>
+            {% if session['id'] %}
+            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+            <li><a href="/login">로그인</a></li>
+            {% endif %}
+            <li><a href="agreement.html">회원가입</a></li>
+            <li><a href="/">판매상품</a></li>
+            <li><a href="/certification">이화인증</a></li>
+            <li><a href="#">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+    </header>
+
+    <main>
+        <h1>배지란?</h1>
+        <span id="hilighting"></span>
+        <p>다양한 배지들을 획득해보세요!</p>
+        <p>특정 조건을 만족하면 배지를 획득할 수 있습니다.</p>
+        <p>획득한 배지는 마이페이지에서 확인 가능하며 작성한 판매글에도 표시됩니다.</p>
+        <br>
+        <p>배지가 붙은 스토어의 상품만 확인하고 싶으신가요?</p>
+        <p>첫화면의 ‘배지 스토어 바로가기’ 를 확인해보세요.</p>
+        <p>또는 전체 상품조회 화면의 ‘인증마켓’ 필터를 사용해보세요.</p>
+
+        <img id="popularStoreImg" src="./image/badge.png" />
+        <img id="reviewRateImg" src="./image/badge.png" />
+        <img id="reviewNumImg" src="./image/badge.png" />
+        <img id="sellNumImg" src="./image/badge.png" />
+        <img id="ewhaCertificationImg" src="./image/ewhaCertificationMark.png" />
+
+        <span id="popularStore">선호 스토어 배지<br><span>스토어 좋아요 100개 이상시</span></span>
+        <span id="reviewRate">평점왕 배지<br><span>스토어 리뷰 평점 4.5 이상시</span></span>
+        <span id="reviewNum">리뷰왕 배지<br><span>스토어 리뷰 100개 이상시</span></span>
+        <span id="sellNum">판매왕 배지<br><span>판매 실적 100개 이상시</span></span>
+        <span id="ewhaCertification">이화인 배지<br><span>이화인 인증 완료시</span></span>
+
+
+
+        <section>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<p>
+{{data.seller}}가 판매하는 상품입니다.<br><br>
+상품명: {{data.name}} <br>
+카테고리: {{data.category}}<br>
+상품 상태는 5점 만점
+{% if data['status'] == "1" %}
+1
+{% endif %}
+{% if data['status'] == "2" %}
+2
+{% endif %}
+{% if data['status'] == "3" %}
+3
+{% endif %}
+{% if data['status'] == "4" %}
+4
+{% endif %}
+{% if data['status'] == "5" %}
+5
+{% endif %}
+점입니다.
+</p>
+상품 대표 이미지<br>
+<img src="{{img_path}}"/>
+ 
+<p>
+상품 설명: {{data.phone}} <br>
+상품 금액: {{data.email}}원<br>
+거래 지역은 {{data.addr}}입니다.
+</p>

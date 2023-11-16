@@ -1,0 +1,173 @@
+*{
+box-sizing: border-box;
+}
+
+body {
+font-size: 20px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 중앙 정렬을 위한 스타일 추가 */
+}
+
+.navbar li {
+    display: inline-block; /* 텍스트를 가로로 나란히 배치 */
+    margin: 0 10px; /* 텍스트 간격 조정 */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+
+
+h1{
+position:absolute;
+left:654px;
+top:100px;
+font-size:36px;
+font-weight:bold;
+color:rgb(0,70,42,0.67);
+}
+
+.textTypeInput{
+position:absolute;
+left:546px;
+width:576px;
+height:43px;
+border: 1px solid #7d7777
+}
+
+.Label{
+position:absolute;
+left:345px;
+font-size:20px;
+line-height:43px;
+}
+
+label[for="id"]{
+top:204px;
+}
+
+#id{
+top:204px;
+}
+
+input[type="button"]{
+position:absolute;
+left:1145px;
+top:204px;
+width:87px;
+height:43px;
+background-color:#7d7777;
+color:white;
+text-align:center;
+line-height:43px;
+font-size:18px;
+border:1px solid black;
+}
+
+label[for="password"]{
+top:259px;
+}
+
+#password{
+top:259px;
+}
+
+label[for="confirmPassword"]{
+top:314px;
+}
+
+#confirmPassword{
+top:314px;
+}
+
+label[for="name"]{
+top:369px;
+}
+
+#name{
+top:369px;
+}
+
+label[for="email"]{
+top:424px
+}
+
+#email{
+top:424px;
+}
+
+label[for="select-FirstTelNum"]{
+top:479px;
+}
+
+select{
+position:absolute;
+left:546px;
+top:479px;
+width:180px;
+height:47px;
+font-size:20px;
+border: 1px solid #7d7777;
+}
+
+#middleTelNum{
+position:absolute;
+left:741px;
+top:479px;
+width:180px;
+height:43px;
+border:1px solid #7d7777;
+}
+
+#lastTelNum{
+position:absolute;
+left:942px;
+top:479px;
+width:180px;
+height:43px;
+border:1px solid #7d7777;
+}
+
+input[type="submit"]{
+position:absolute;
+left:586px;
+top:590px;
+width:269px;
+height:59px;
+background-color:#00462A;
+color: white;
+text-align:center;
+font-size:28px;
+line-height:59px;
+border-radius:6px;
+}
+
+
+
+
+
+

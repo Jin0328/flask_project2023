@@ -1,0 +1,119 @@
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+
+.navbar li {
+    display: inline-block; 
+    margin: 0 10px; 
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.formImg{
+    width: 518px; height: 387px;
+    position:absolute; left: 95px; top: 137px;
+    background: rgba(217,217,217,0.8);
+}
+.button {
+    display: flex;
+    justify-content: center;
+}
+.imgLabel {
+    cursor: pointer;
+    font-size: 1em;
+}
+#chooseFile {
+    visibility: hidden;
+}
+circle{
+    fill:#D9D9D9;
+}
+.select{
+    fill:#5A5A5A;
+}
+.divImg{
+    float:left;
+    position: relative; top: 0.1px; 
+    z-index: 2;
+}
+.divForm{
+    position: relative; left: 250px; top: 130px;
+    width: 1150px;
+    z-index: 1;
+}
+.divForm label{
+    font-size: 25px;
+    color: #000;
+    text-align: center;
+}
+.inputText{
+    width: 500px; height: 30px;
+    text-align: center;
+    border: none;
+    position: relative; top: -5px; left: 25px;
+    font-size: 120%;
+}
+hr{
+    width: 500px;
+    position: relative; left: 45px; top: -3px;
+}
+.divFormID{
+    position: relative; left: 0px; top: -5px;
+}
+.inputSelect{
+    border: none;
+    width: 500px; height: 30px;
+    text-align: center;
+    font-size: 120%;
+    position: relative; top: -5px; left: 73px;
+}
+.divFormGender{
+    position: relative; left: 23px;
+}
+#reviewRange{
+    width: 300px;
+    position: relative; left: 30px;
+}
+datalist{
+    display: grid;
+    grid-auto-flow: column;
+    width:341px;   
+    position: relative; left: 147px;
+}
+#reviewText{
+    width: 1200px; height: 200px;
+    font-size: 120%;
+    position: relative; bottom: 150px; left: -130px;
+}
+#reviewSubmit{
+    width: 400px; height: 50px;
+    font-size: 120%;
+    float: right;
+    position: relative; bottom: 120px; left: -50px;
+    border: none;
+    background-color: #00462a;
+    color: #fff;
+    border-radius: 10px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="goodsAdd.css">
+</head>
+<nav>
+    <ul>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+        <li><a href="/">판매상품</a></li>
+        <li><a href="/certification">이화인인증</a></li>
+        <li><a href="#">마이페이지</a></li>
+        <li><a href="#">장바구니</a></li>
+    </ul>
+</nav>
+<div class="divImg">
+    <form method="post" enctype="multipart/form-data">
+        <div class="button">
+            <label class="imgLabel" for="chooseFile">
+                <div class="formImg">
+                    <p style="text-align: center; float: center;">상품 사진은 최대 10장 업로드 가능합니다</p>
+                </div>
+            </label>
+        </div>
+        <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+    </form>
+    <svg width="450" height="590">
+        <circle cx="296" cy="520" r="9"></circle>
+        <circle cx="321" cy="520" r="9"></circle>
+        <circle cx="346" cy="520" r="9"></circle>
+        <circle class="select" cx="371" cy="520" r="9"></circle>
+        <circle cx="396" cy="520" r="9"></circle>
+    </svg>
+</div>
+
+<div class="divForm">
+    <form method="post">
+        <label style="position: relative; left: 15px;">상품명</label>
+        <input type="text" id="goodsTitle" name="goodsTitle" style="position: relative; left: 75px;"
+        placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required class="inputText">
+        <hr><br>
+        <div class="divFormID">
+            <label style="position: relative; left: -20px;">판매자 아이디</label>
+            <input type="text" id="goodsID" name="goodsID" style="position: relative; left: 5px;"
+            placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required class="inputText">
+        </div>
+        <hr><br>
+        <label style="position: relative; left: 5px;">카테고리</label>
+        <select id="goodsCate" class="inputSelect">
+            <option value="가전">가전</option>
+            <option value="문구/서적">문구/서적</option>
+            <option value="기타">기타</option>
+        </select>
+        <hr><br>
+        <label  style="position: relative; left: 25px;">금액</label>
+        <input type="number" id="goodsPrice" name="goodsPrice"
+        placeholder="판매 금액 입력" min="0" maxlength="7" required><p class="won">원</p>
+        <hr><br>
+        <label style="position: relative; left: 25px;">지역</label>
+            <select id="goodsCity">
+                <option value="1">서울시</option>
+                <option value="2">경기도</option>
+                <option value="3">강원도</option>
+                <option value="4">충청도</option>
+                <option value="5">경상도</option>
+                <option value="over">선택지 없음</option>
+            </select>
+            <select id="goodsCity">
+                <option value="over">선택지 없음</option>
+                <option value="1">시/도 선택에 따라서 옵션 달라짐</option>
+            </select>
+        <hr><br>
+        <label style="position: relative; left: -5px;">상품 상태</label>
+        <input type="range" min="0" max="5" value="0" step="0.5" list="tickmarks" id="goodsRange">
+        <datalist id="tickmarks">
+            <option value="0">매우 나쁨</option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5">매우 좋음</option>
+        </datalist>
+        <textarea name="goodsText" cols="50" rows="10" id="goodsText" 
+        placeholder="상품 설명을 입력해주세요. (최대 500자 입력 가능합니다)" maxlength="500" required></textarea>
+        <input type="submit" id="goodsSubmit" value="상품 등록">
+    </form>
+</div>
+</html>
