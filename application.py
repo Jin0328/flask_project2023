@@ -52,7 +52,10 @@ def hello():
 
 @application.route("/list")
 def view_list():
-    return render_template("상품전체조회.html")
+    
+    data = DB.get_items()
+    tot_count = len(data)
+    return render_template("상품전체조회.html", datas=data.items(), total=tot_count)
 
 @application.route("/certification")
 def view_review():
