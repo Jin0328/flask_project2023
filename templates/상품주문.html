@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="상품주문.css">
+    <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
+</head>
+<nav class="navbar">
+    <div class="navbar_logo">
+        <a href="">
+        <i class="fa-brands fa-pagelines"></i>
+        <p>EWHA STORE</p>
+        </a>
+    </div>
+
+    <ul class="navbar_menu">
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+        <li><a href="/certification">이화인증</a></li>
+        <li><a href="/reg_items">마이페이지</a></li>
+        <li><a href="">장바구니</a></li>
+    </ul>
+</nav>
+
+
+<form method="post">
+<div class="상품정보">
+    <h2>상품정보</h2>
+    <table class="table">
+        <tr>
+            <th>상품이름</th>
+            <td>#상품이름 받아서 출력</td>
+        </tr>
+        <tr>
+            <th>수량</th>
+            <td>
+                <select id="수량">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>금액 합계</th>
+            <td>#수량*금액으로 총 금액 출력</td>
+        </tr>
+    </table>
+</div>
+<div class="배송정보">
+    <h2>배송정보</h2>
+    <table class="table">
+        <tr>
+            <th>이름</th>
+            <td>
+                <input type="text" id="name" size="20" placeholder="이름 입력" required>
+            </td>
+        </tr>
+        <tr>
+            <th>전화번호</th>
+            <td>
+                <input type="text" id="tel" size="20" placeholder="전화번호 입력" required>
+            </td>
+        </tr>
+        <tr>
+            <th>배송지</th>
+            <td>
+                <input type="text" id="address" size="20" placeholder="주소 입력" required>
+            </td>
+        </tr>
+        <tr>
+            <th>요청사항</th>
+            <td>
+                <input type="text" id="name" size="20" placeholder="요청 사항 (선택)">
+            </td>
+        </tr>
+        
+    </table>
+</div>
+<div class="입금확인">
+    <h2>입금 확인</h2>
+    <table class="table">
+        <tr>
+            <th>판매자 계좌</th>
+            <td>#판매자가 입력한 계좌 출력</td>
+        </tr>
+        <tr>
+            <th>입금자명</th>
+            <td>
+                <input type="text" id="입금자명" size="20" placeholder="구매자 본인의 이름 입력" required>
+            </td>
+        </tr>
+    </table>
+</div>
+<input type="submit" id="submit" value="구매 확정">
+<p>구매버튼 누르면 알림창 뜸(3일 이내로 입금해야됨. 등등)</p>
+</form>
