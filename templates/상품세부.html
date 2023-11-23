@@ -12,7 +12,6 @@
 <body>
 
 
-
 <div class="v3_870">
 	<div class="v38_275"></div>
 	<div class="v5_1562">
@@ -20,9 +19,25 @@
 		<span class="가격">15000 원</span>
 		<span class="상품소개">최고 귀여운 곰돌이 키링
 대동제 32번 부스에서도 판매합니다</span>
-		<span class="판매자">판매자             송충이 상점</span>
-		<span class="지역">지역             서울시/서대문구</span>
-		<span class="상품상태">상품 상태</span>
+		<span class="판매자">판매자             {{data.seller}}</span>
+		<span class="지역">지역             {{data.addr}}</span>
+		<span class="상품상태">
+            {% if data['status'] == "1" %}
+            1점
+            {% endif %}
+            {% if data['status'] == "2" %}
+            2점
+            {% endif %}
+            {% if data['status'] == "3" %}
+            3점
+            {% endif %}
+            {% if data['status'] == "4" %}
+            4점
+            {% endif %}
+            {% if data['status'] == "5" %}
+            5점
+            {% endif %}
+        </span>
 	<div class="name"></div>
 </div>
 

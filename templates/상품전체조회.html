@@ -70,6 +70,50 @@
 </style>
 
 </head>
+    
+    
+{% if total > 0 %}
+<p>
+    상품 리스트 -- 현재까지 {{total}}개 등록됨
+</p>
+<table>
+    <tr>
+    {% for key, value in row1 %}
+        <td>상품이름: {{key}}</td>
+    {% endfor %}
+    </tr>
+    <tr>
+    {% for key, value in row1 %}
+        <td onclick="location.href='/view_detail/{{key}}/';" style="cursor:pointer;">
+        <img src="{{value.img_path}}", width=140, height=200></td>
+    {% endfor %}
+    </tr>
+    <tr>
+    {% for key, value in row2 %}
+        <td>상품이름: {{key}}</td>
+    {% endfor %}
+    </tr>
+    <tr>
+    {% for key, value in row2 %}
+    <td onclick="location.href='/view_detail/{{key}}/';" style="cursor:pointer;">
+        <img src="{{value.img_path}}", width=140, height=200></td>
+        {% endfor %}
+    </tr>
+</table>
+<div class="page-wrap">
+    <div class="page-nation">
+        <ul>
+            <li>
+            {% for i in range(page_count)%}
+                <a href="{{url_for('view_list', page=i)}}" color="black">{{i}}</a>
+            {% endfor %} </li>
+        </ul>
+    </div>
+</div>
+{% else %}
+<p>등록된 상품이 없습니다.</p>
+{% endif %}
+<!--
 <body>
 
 <div class="Desktop4" style="width: 1440px; height: 3000px; position: relative; background: white">
@@ -519,7 +563,7 @@
     <div class="Rectangle10" style="width: 1482px; height: 117px; left: 0px; top: 0px; position: absolute; opacity: 0.50; background: rgba(45.90, 83.07, 49.62, 0.93)"></div>
     <div class="By" style="width: 517px; height: 87px; left: 498px; top: 50px; position: absolute; text-align: center; color: rgba(255, 255, 255, 0.67); font-size: 25px; font-family: Roboto; font-weight: 700; line-height: 14px; word-wrap: break-word">By 어소와 오소플은 처음이지?</div>
   </div>
-
+-->
 <div class="navbar">
         <ul>
             {% if session['id'] %}
@@ -532,8 +576,9 @@
             <li><a href="#">장바구니</a></li>
         </ul>
     </div>
-
+<!--  
 </div>
 
 </body>
+-->
 </html>
