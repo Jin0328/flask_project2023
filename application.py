@@ -77,7 +77,7 @@ def reg_item_submit():
     status = request.args.get("status")
     intro = request.args.get("intro")
     
-    print(name, seller, addr, category, status, description)
+    # print(name, seller, addr, category, status, description)
     #return render_template("reg_item.html")
 
 @application.route("/submit_item_post", methods=['POST'])
@@ -86,10 +86,36 @@ def reg_item_submit_post():
     image_file=request.files["file"]
     image_file.save("static/images/{}".format(image_file.filename))
 
-    data=request.form
-    return render_template("submit_item_result.html", data=data, img_path="static/images/{}".format(image_file.filename))
+    name = request.form.get("name")
+    seller = request.form.get("seller")
+    addr = request.form.get("addr")
+    money = request.form.get("money")
+    category = request.form.get("category")
+    status = request.form.get("status")
+    intro = request.form.get("intro")
+
+    # 데이터베이스에 데이터 삽입 로직 수행
+    if DB.insert_item(name, {
+        'seller': seller,
+        'addr': addr,
+        'money': money,
+        'category': category,
+        'status': status,
+        'intro': intro
+    }, "static/images/{}".format(image_file.filename)):
+        flash("상품이 성공적으로 등록되었습니다!")
+    else:
+        flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
+
+    return render_template(
+        "submit_item_result.html",
+        data=request.form,
+        img_path="static/images/{}".format(image_file.filename)
+    )
+    # data=request.form
+    # return render_template("submit_item_result.html", data=data, img_path="static/images/{}".format(image_file.filename))
     # 여기서 데이터베이스에 데이터 삽입 로직 수행
-    # DB.insert_item(name, seller, category, price, addr, status, description)
+    # DB.insert_item(name, seller, addr, money, category, status, intro)
     # return redirect(url_for('view_list'))
 
 @application.route('/signup_page')
