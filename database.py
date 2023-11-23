@@ -46,17 +46,16 @@ class DBhandler:
         
         return False
     
-    def insert_item(self, name, data, img_path): 
-        item_info ={
+    def insert_item(self, name, data, img_path):
+        item_info = {
             "seller": data['seller'],
             "addr": data['addr'],
-            "email": data['email'], 
-            "category": data['category'], 
-            # "card": data['card'],
-            "status": data['status'], 
-            "phone": data['phone'], 
+            "money": data['money'],
+            "category": data['category'],
+            "status": data['status'],
+            "intro": data['intro'],
             "img_path": img_path
-        } 
-        self.db.child("item").child(name).set(item_info) 
-        print(data,img_path)
+        }
+        self.db.child("item").child(name).set(item_info)
+        print(data, img_path)
         return True
