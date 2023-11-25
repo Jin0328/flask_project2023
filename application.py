@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from database import DBhandler
 import hashlib
 import sys 
+import pyrebase
 
 application = Flask(__name__)
 application.config["SECRET_KEY"] = "helloosp"
@@ -55,7 +56,7 @@ def view_list():
     return render_template("상품전체조회.html")
 
 @application.route("/certification")
-def view_review():
+def view_certification():
     return render_template("이화인인증.html")
 
 @application.route("/reg_items")
@@ -95,6 +96,60 @@ def reg_item_submit_post():
 @application.route('/signup_page')
 def signup_page():
     return render_template('회원가입.html')
+
+@application.route("/review")
+def view_review():
+    page = request.args.get("page", 0, type=int)
+    per_page=6 # item count to display per page
+    per_row=3# item count to display per row
+    row_count=int(per_page/per_row)
+    start_idx=per_page*page
+    end_idx=per_page*(page+1)
+    data = DB.get_reviews() #read the table
+    item_counts = len(data)
+    data = dict(list(data.items())[start_idx:end_idx])
+    tot_count = len(data)
+    for i in range(row_count):#last row
+        if (i == row_count-1) and (tot_count%per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        else:
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
+    return render_template(
+        "review.html",
+        datas=data.items(),
+        row1=locals()['data_0'].items(),
+        row2=locals()['data_1'].items(),
+        limit=per_page,
+        page=page,
+        page_count=int((item_counts/per_page)+1),
+        total=item_counts)
+
+
+@application.route('/review_detail/<review_id>')
+def view_review_detail(review_id):
+    review = DB.get_review_by_id(review_id)
+    if review:
+        return render_template('review_detail.html', review=review)
+    else:
+        # 리뷰 없음
+        return render_template('review_not_found.html')
+
+
+@application.route('/show_heart/<name>/', methods=['GET'])
+def show_heart(name):
+    my_heart = DB.get_heart_byname(session['id'],name)
+    return jsonify({'my_heart': my_heart})
+
+@application.route('/like/<name>/', methods=['POST'])
+def like(name):
+    my_heart = DB.update_heart(session['id'],'Y',name)
+    return jsonify({'msg': '좋아요 완료!'})
+
+@application.route('/unlike/<name>/', methods=['POST'])
+def unlike(name):
+    my_heart = DB.update_heart(session['id'],'N',name)
+    return jsonify({'msg': '안좋아요 완료!'})
+
 
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
