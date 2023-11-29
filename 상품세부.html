@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Sansation+Light&display=swap" rel="stylesheet" />
+<link href="main.css" rel="stylesheet" />
+
+<title>Document</title>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+
+function showHeart() {
+ 	$.ajax({
+ 		type: 'GET',
+ 		url: './getHeart.json', // /show_heart/{{name}} 
+ 		data: {},
+ 		success: function (response){
+ 			let my_heart = response['my_heart'];
+			let interested=my_heart['interested']
+			let interested_cnt=my_heart['interested_cnt']
+ 			
+			$("#jcnt").text(interested_cnt); //찜갯수
+
+			if (interested == 'Y'){
+ 				$(".heartButton").css("background-color","red");
+ 				$("#heartButton").attr("onclick","unlike()");
+			}else{
+	 			$(".heartButton").css("background-color","grey");
+ 				$("#heartButton").attr("onclick","like()");
+			}
+ 			//alert("showheart!")
+ 
+		}
+ 	});
+}
+
+ $(document).ready(function () {
+	//showHeart();
+	init();
+
+ });
+function init(){
+	$("#jcnt").text("10"); //찜갯수
+ 	if (true){
+ 		$(".heartButton").css("background-color","red");
+ 		$("#heartButton").attr("onclick","unlike()");
+	}else{
+	 	$(".heartButton").css("background-color","grey");
+ 		$("#heartButton").attr("onclick","like()");
+	}
+}
+function like(){
+	$(".heartButton").css("background-color","red");
+	$("#heartButton").attr("onclick","unlike()");
+	var jcnt=Number($("#jcnt").text());
+	$("#jcnt").text(jcnt+1);
+}
+
+function unlike(){
+	$(".heartButton").css("background-color","grey");
+	$("#heartButton").attr("onclick","like()");
+	var jcnt=Number($("#jcnt").text());
+	if(jcnt>0){
+		$("#jcnt").text(jcnt-1);
+	}
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+
+
+<div class="v3_870">
+	<div class="v38_275"></div>
+	<div class="v5_1562">
+		<span class="상품명">이화 곰돌이 키링</span>
+		<span class="가격">15000 원</span>
+		<span class="상품소개">최고 귀여운 곰돌이 키링
+대동제 32번 부스에서도 판매합니다</span>
+		<span class="판매자">판매자             송충이 상점</span>
+		<span class="지역">지역             서울시/서대문구</span>
+		<span class="상품상태">상품 상태</span>
+	<div class="name"></div>
+</div>
+
+<div class="이미지바">
+	<div class="v5_1564"></div>
+	<div class="v5_1565"></div>
+	<div class="v5_1566"></div>
+	<div class="v5_1567"></div>
+	<div class="v5_1568"></div>
+</div>
+
+<div class="button-container">
+    <a href="#" class="customButton" name="buynow">Buy Now</a>
+    <a href="#" class="customButton" name="addtocart">Add to Cart</a>
+</div>
+
+
+</div>
+<div class="name"></div>
+<div class="v5_1575">
+<div class="v5_1576">
+<div class="v5_1577">
+<div class="v5_1578">
+<div class="v5_1579"></div>
+<div class="v5_1580">
+<a href="#" class="상점바로가기">송충이 상점                                       바로가기</a>
+</div>
+</div>
+</div>
+<span class="상점소개">송충이 상점 한 줄 소개</span>
+</div>
+</div>
+<span class="상품찜">찜 <span id="jcnt">15</span>
+ 	<button class="heartButton"  id="heartButton">
+ 		 <span class="heartIcon"></span>
+	</button>
+</span>
+
+<a href="#" class="REVIEWButton">REVIEW</a>
+
+<div class="name"></div>
+
+
+<div class="v7_1671">
+
+<div class="v7_1672"></div>
+</div>
+<div class="v38_276">
+<div class="v38_277"></div>
+</div>
+<div class="v92_43">
+<div class="v92_44">
+<div class="v92_45"></div>
+</div>
+<div class="navbar">
+        <ul>
+			{% if session['id'] %}
+			<li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+			<li><a href="/login">로그인</a></li>
+			{% endif %}
+            <li><a href="/">판매상품</a></li>
+            <li><a href="/certification">이화인증</a></li>
+            <li><a href="/reg_items">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+</body>
+</html>
+
