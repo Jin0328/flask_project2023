@@ -1,0 +1,293 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v68_48 {
+  width: 100%;
+  height: 1024px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v68_49 {
+  width: 586px;
+  height: 561px;
+  background: url("../images/v68_49.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 290px;
+  left: 102px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* 텍스트 중앙 정렬을 위한 스타일 추가 */
+}
+
+.navbar li {
+    display: inline-block; /* 텍스트를 가로로 나란히 배치 */
+    margin: 0 10px; /* 텍스트 간격 조정 */
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.v68_53 {
+  width: 117px;
+  height: 18px;
+  background: url("../images/v68_53.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 892px;
+  left: 336px;
+  overflow: hidden;
+}
+.v68_54 {
+  width: 18px;
+  height: 18px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 26px;
+  border-radius: 50%;
+}
+.v68_55 {
+  width: 18px;
+  height: 18px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 50%;
+}
+.v68_56 {
+  width: 18px;
+  height: 18px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 99px;
+  border-radius: 50%;
+}
+.v68_57 {
+  width: 18px;
+  height: 18px;
+  background: rgba(89,89,89,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 76px;
+  border-radius: 50%;
+}
+.v68_58 {
+  width: 18px;
+  height: 18px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 51px;
+  border-radius: 50%;
+}
+.상품명 {
+  width: 298px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 128px;
+  left: 120px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 32px;
+  opacity: 1;
+  text-align: left;
+}
+.v68_60 {
+  width: 161px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 298px;
+  left: 869px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.상점사진 {
+  width: 67px;
+  height: 67px;
+  background: rgba(217,217,217,1);
+  opacity: 1;
+  position: absolute;
+  top: 293px;
+  left: 778px;
+  border-radius: 50%;
+}
+.구매자정보 {
+  width: 400px;
+  color: rgba(146,146,146,1);
+  position: absolute;
+  top: 301px;
+  left: 996px;
+  font-family: Roboto;
+  font-weight: SemiBold;
+  font-size: 28px;
+  opacity: 1;
+  text-align: left;
+}
+.v68_63 {
+  width: 167px;
+  height: 29px;
+  background: rgba(12,166,104,1);
+  opacity: 1;
+  position: absolute;
+  top: 353px;
+  left: 869px;
+}
+.v68_64 {
+  width: 135px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 344px;
+  left: 1209px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+.리뷰제목 {
+  width: 400px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 438px;
+  left: 778px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 40px;
+  opacity: 1;
+  text-align: left;
+}
+.리뷰내용 {
+  width: 500px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 518px;
+  left: 780px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 20px;
+  opacity: 1;
+  text-align: left;
+}
+.v68_67 {
+  width: 400px;
+  color: rgba(121,121,121,1);
+  position: absolute;
+  top: 839px;
+  left: 953px;
+  font-family: Roboto;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+
+
+.v68_71 {
+  width: 82px;
+  height: 50px;
+  background: url("../images/v68_71.png");
+  opacity: 1;
+  position: absolute;
+  top: 822px;
+  left: 1261px;
+  border-radius: 50%;
+}
+.상품옵션 {
+  width: 500px;
+  color: rgba(79,79,79,1);
+  position: absolute;
+  top: 179px;
+  left: 120px;
+  font-family: Roboto;
+  font-weight: Bold;
+  font-size: 30px;
+  opacity: 1;
+  text-align: left;
+}
+.name {
+  color: #fff;
+}
+.판매자 {
+  width: 400px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 156px;
+  left: 1050px;
+  font-family: Roboto;
+  font-weight: Medium;
+  font-size: 25px;
+  opacity: 1;
+  text-align: left;
+}
+.상품이미지 {
+  width: 29px;
+  height: 29px;
+  background: url("../images/v68_75.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 167px;
+  left: 1305px;
+  overflow: hidden;
+}
+.v68_76 {
+  width: 29px;
+  height: 29px;
+  background: rgba(0,70,42,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
