@@ -66,10 +66,10 @@ def view_list():
     for i in range(row_count):
         if (i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())
-            [i*per_row:])
+                                                 [i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())
-            [i*per_row:(i+1)*per_row])
+                                                 [i*per_row:(i+1)*per_row])
     return render_template(
         "상품전체조회.html",
         datas=data.items(),
@@ -95,21 +95,22 @@ def reg_item():
 @application.route("/view_review")
 def view_review():
     page = request.args.get("page", 0, type=int)
-    per_page=6 # item count to display per page
-    per_row=3# item count to display per row
-    row_count=int(per_page/per_row)
-    start_idx=per_page*page
-    end_idx=per_page*(page+1)
-    data = DB.get_reviews() #read the table
+    per_page = 6
+    per_row = 3
+    row_count = int(per_page/per_row)
+    start_idx = per_page*page
+    end_idx = per_page*(page+1)
+    data = DB.get_reviews()
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
     for i in range(row_count):#last row
-        if (i == row_count-1) and (tot_count%per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        if (i == row_count-1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:])
         else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
-    
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:(i+1)*per_row])
     return render_template(
         "리뷰_전체조회.html",
         datas=data.items(),
@@ -204,14 +205,11 @@ def view_item_detail(name):
     return render_template("상품세부.html", name=name, data=data)
 
 
-@application.route('/review_detail/<review_id>')
-def view_review_detail(review_id):
-    review = DB.get_review_by_id(review_id)
-    if review:
-        return render_template('review_detail.html', review=review)
-    else:
-        # 리뷰 없음
-        return render_template('review_not_found.html')
+@application.route('/view_review_detail/<name>')
+def view_review_detail(name):
+    data = DB.get_review_byname(str(name))
+    return render_template("리뷰상세.html", name=name, data=data)
+
 
 @application.route('/show_heart/<name>/', methods=['GET'])
 def show_heart(name):

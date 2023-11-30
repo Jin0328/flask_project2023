@@ -17,7 +17,7 @@
     </ul>
 </div>
 <div class="divRate">
-    <p class="title">이화 키링 | 상품 리뷰</p>
+    <p class="title"> 상품 리뷰</p>
     <a href="상품상세"><img class="topImg" src="img.jpg"></a>
     <label class="rateAll">
         <pre>     총 평점 
@@ -43,6 +43,8 @@
         <sub>(17)</sub>
     </label>
 </div>
+<!-- 사진/동영상 리뷰 없애는 쪽으로 생각 중
+
 <div class="divMedia">
     <p class="subTitle">사진/동영상 리뷰(225)</p>
     <a href="각리뷰">
@@ -67,8 +69,12 @@
         <span>더보기></span>
     </a>
 </div>
+
+-->
+    
+{% if total > 0 %}
 <div class="divAll">
-    <p class="subTitle">전체 리뷰(337)</p>
+    <p class="subTitle">전체 리뷰({{total}})</p>
     <input type="button" value="추천순" id="sort" class="first">
     <input type="button" value="최신순" id="sort" class="second">
     <input type="button" value="평점 높은 순" id="sort" class="third">
@@ -76,7 +82,7 @@
         <tr>
         {% for key, value in row1 %}
             <td onclick="location.href='/view_review_detail/{{key}}';" style="cursor: pointer;">
-                <img src="static/images/{{value.img_path}}", width=200, height=165>
+            <img src="{{value.img_path}}", width=200, height=165>
             </td>
         {% endfor %}
         </tr>
@@ -85,7 +91,37 @@
             <td>{{value.title}}</td>
         {% endfor %}
         </tr>
-    </table>
+    <tr>
+    {% for key, value in row2 %}
+    <td onclick="location.href='/view_review_detail/{{key}}';" style="cursor:pointer;">
+        <img src="{{value.img_path}}", width=200, height=165></td>
+        {% endfor %}
+    </tr>
+    <tr>
+    {% for key, value in row2 %}
+        <td>{{value.title}}</td>
+    {% endfor %}
+    </tr>
+</table>
+</div>
+<div class="page-wrap">
+    <div class="page-nation">
+        <ul>
+            <li>
+            {% for i in range(page_count)%}
+                <a href="{{url_for('view_list', page=i)}}" color="black">{{i}}</a>
+            {% endfor %} </li>
+        </ul>
+    </div>
+</div>
+{% else %}
+<div class="divAll">
+    <p class="subTitle">전체 리뷰(0)</p>
+    <input type="button" value="추천순" id="sort" class="first">
+    <input type="button" value="최신순" id="sort" class="second">
+    <input type="button" value="평점 높은 순" id="sort" class="third">
+</div>
+{% endif %}
     
     <!--
     <a href="각리뷰">
@@ -151,19 +187,5 @@
         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
     </div>
 </div>-->
-</div>
-<div class="page-wrap">
-    <div class="page-nation">
-        <ul>
-            {% if page_count is defined %}
-                {% for i in range(page_count) %}
-                    <li><a href="{{ url_for('view_review', page=i) }}">{{ i }}</a></li>
-                {% endfor %}
-            {% else %}
-                <li>No reviews available.</li>
-            {% endif %}
 
-        </ul>
-    </div>
-</div>
 </html>
