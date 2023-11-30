@@ -41,6 +41,24 @@ body {
   border-bottom-right-radius: 20px;
   overflow: hidden;
 }
+
+.v38_275_t {
+  width: 627px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 187px;
+  left: 85px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+
 .v5_1562 {
   width: 619px;
   height: 477px;

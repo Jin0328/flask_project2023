@@ -171,4 +171,8 @@ hr{
 }
 #myform input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(12, 166, 105, 1);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1dc14714d6d766f7b125c64df30cc413d2ec47a7

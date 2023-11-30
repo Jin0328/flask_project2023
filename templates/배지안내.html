@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,3 +62,68 @@
     </main>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0;" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='badgeInfo.css') }}">
+
+    <title>이화상점: 이화인인증</title>
+    <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="">
+                <i class="fa-brands fa-pagelines"></i>
+                <p>EWHA STORE</p>
+                </a>
+            </div>
+
+            <ul class="navbar_menu">
+                {% if session['id'] %}
+                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+                <li><a href="/login">로그인</a></li>
+                {% endif %}
+                <li><a href="/certification">이화인증</a></li>
+                <li><a href="/my_page">마이페이지</a></li>
+                <li><a href="">장바구니</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>배지란?</h1>
+        <span id="hilighting"></span>
+        <p>다양한 배지들을 획득해보세요!</p>
+        <p>특정 조건을 만족하면 배지를 획득할 수 있습니다.</p>
+        <p>획득한 배지는 마이페이지에서 확인 가능하며 작성한 판매글에도 표시됩니다.</p>
+        <br>
+        <p>배지가 붙은 스토어의 상품만 확인하고 싶으신가요?</p>
+        <p>첫화면의 ‘배지 스토어 바로가기’ 를 확인해보세요.</p>
+        <p>또는 전체 상품조회 화면의 ‘인증마켓’ 필터를 사용해보세요.</p>
+
+        <img id="popularStoreImg" src="/static/images/badge.png" />
+        <img id="reviewRateImg" src="/static/images/badge.png" />
+        <img id="reviewNumImg" src="/static/images/badge.png" />
+        <img id="sellNumImg" src="/static/images/badge.png" />
+        <img id="ewhaCertificationImg" src="/static/images/ewhaCertificationMark.png" />
+
+        <span id="popularStore">선호 스토어 배지<br><span>스토어 좋아요 100개 이상시</span></span>
+        <span id="reviewRate">평점왕 배지<br><span>스토어 리뷰 평점 4.5 이상시</span></span>
+        <span id="reviewNum">리뷰왕 배지<br><span>스토어 리뷰 100개 이상시</span></span>
+        <span id="sellNum">판매왕 배지<br><span>판매 실적 100개 이상시</span></span>
+        <span id="ewhaCertification">이화인 배지<br><span>이화인 인증 완료시</span></span>
+
+
+
+        <section>
+        </section>
+    </main>
+</body>
+</html>
+>>>>>>> 1dc14714d6d766f7b125c64df30cc413d2ec47a7

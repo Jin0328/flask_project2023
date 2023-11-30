@@ -70,11 +70,11 @@ class DBhandler:
             if key_value == name:
                 target_value = res.val()
         return target_value
-    
+
     def reg_review(self, data, img_path):
-        review_info={
-            "rate":data['reviewStar'],
-            "review": data['reviewContents'],
+        review_info = {
+            "rate" : data['reviewStar'],
+            "review" : data['reviewContents'],
             "title" : data['reviewTitle'],
             "img_path": img_path
         }
@@ -84,15 +84,18 @@ class DBhandler:
     def get_reviews(self):
         reviews = self.db.child("review").get().val()
         return reviews
-    
-    
-    def get_review_by_name(self, review_name):
-        reviews = self.db.child("review").order_by_child('name').equal_to(review_name).get()
-            # 이름으로 리뷰를 찾아 반환
-        if reviews.each():
-            return reviews.val()
-        else:
-            return None
+
+
+    def get_review_byname(self, name):
+        reviews = self.db.child("review").get()
+        target_value = ""
+        print("###########", name)
+        for res in reviews.each():
+            key_value = res.key()
+            if key_value == name:
+                target_value = res.val()
+        return target_value
+
     def get_heart_byname(self, uid, name):
         hearts = self.db.child("heart").child(uid).get()
         target_value=""
@@ -106,11 +109,11 @@ class DBhandler:
             target_value=res.val()
         return target_value
 
-    
+
     def update_heart(self, user_id, isHeart, item):
         heart_info ={
             "interested": isHeart
         }
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
-    
+

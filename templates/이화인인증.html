@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,3 +51,57 @@
     </main>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0;" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="{{ url_for('static', filename='ewhaCertification.css') }}" rel="stylesheet" />
+    <title>이화상점: 이화인인증</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+        <ul>
+            {% if session['id'] %}
+            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+            <li><a href="/login">로그인</a></li>
+            {% endif %}
+            <li><a href="/">판매상품</a></li>
+            <li><a href="/certification">이화인증</a></li>
+            <li><a href="/my_page">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+    </header>
+    <main>
+        <h1>이화상점</h1>
+        <section>
+            <h2>이화인 인증</h2>
+            <img src="/static/images/ewhaCertificationMark.png" />
+            <span id="certificationExample">이화인 인증을 받은 판매자는<br>판매글에 <mark>이화인 배지</mark>가 표시됩니다.</span>
+            <img src="/static/images/ewhaMarketExample.png" />
+            <span id="hilighting"></span>
+        </section>
+
+        <section>
+            <span id="moreInfo">배지에 대해</span>
+            <a class="moreInfo" href="/badge">더 알아보기</a>
+        </section>
+
+        <section>
+            <form action="test.html" method="post">
+                <input type="text" id="name" placeholder="이름" style="font-size:20px;" required />
+                <input type="text" id="major" placeholder="전공" style="font-size:20px;" required />
+                <span class="questionList">소방 안전교육 3번째 영상의 제목은 무엇인가요?</span>
+                <a href=""><img src="/static/images/refreshButton.png" /></a>
+                <input type="text" id="answer" placeholder="정답입력" style="font-size: 20px;" required />
+                <input type="submit" value="인증하기" />
+            </form>
+        </section>
+    </main>
+</body>
+</html>
+>>>>>>> 1dc14714d6d766f7b125c64df30cc413d2ec47a7

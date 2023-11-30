@@ -80,21 +80,26 @@ def view_list():
         page_count=int((item_counts/per_page)+1),
         total=item_counts)
 
+
 @application.route('/main_page')
 def main_page():
     return render_template('main_first.html')
+
 
 @application.route('/review')
 def review_page():
     return render_template('리뷰작성.html')
 
+
 @application.route("/certification")
 def view_certification():
     return render_template("이화인인증.html")
 
+
 @application.route("/badge")
 def badge():
     return render_template("배지안내.html")
+
 
 @application.route("/reg_items")
 def reg_item():
@@ -103,21 +108,22 @@ def reg_item():
 @application.route("/view_review")
 def view_review():
     page = request.args.get("page", 0, type=int)
-    per_page=6 # item count to display per page
-    per_row=3# item count to display per row
-    row_count=int(per_page/per_row)
-    start_idx=per_page*page
-    end_idx=per_page*(page+1)
-    data = DB.get_reviews() #read the table
+    per_page = 6
+    per_row = 3
+    row_count = int(per_page/per_row)
+    start_idx = per_page*page
+    end_idx = per_page*(page+1)
+    data = DB.get_reviews()
     item_counts = len(data)
     data = dict(list(data.items())[start_idx:end_idx])
     tot_count = len(data)
     for i in range(row_count):#last row
-        if (i == row_count-1) and (tot_count%per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        if (i == row_count-1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:])
         else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
-    
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:(i+1)*per_row])
     return render_template(
         "리뷰_전체조회.html",
         datas=data.items(),
@@ -128,10 +134,12 @@ def view_review():
         page_count=int((item_counts/per_page)+1),
         total=item_counts)
 
+
 # @application.route("/reviews")
 # def get_reviews():
 #     reviews = DB.get_reviews()
 #     return render_template("reviews.html", reviews=reviews)
+
 
 @application.route("/reg_review_init/<name>/", methods=['GET', 'POST'])
 def reg_review_init(name):
@@ -154,6 +162,8 @@ def reg_review():
 
     return render_template("리뷰_전체조회.html")
 
+
+
 @application.route("/submit_item", methods=['POST'])
 def reg_item_submit():
     name = request.args.get("name")
@@ -166,6 +176,7 @@ def reg_item_submit():
     
     # print(name, seller, addr, category, status, description)
     #return render_template("reg_item.html")
+
 
 @application.route("/submit_item_post", methods=['POST'])
 def reg_item_submit_post():
@@ -200,6 +211,7 @@ def reg_item_submit_post():
         img_path="static/images/{}".format(image_file.filename)
     )
 
+
 @application.route('/signup_page')
 def signup_page():
     return render_template('회원가입.html')
@@ -220,14 +232,11 @@ def view_item_detail(name):
     return render_template("상품세부.html", name=name, data=data)
 
 
-@application.route('/review_detail/<review_id>')
-def view_review_detail(review_id):
-    review = DB.get_review_by_id(review_id)
-    if review:
-        return render_template('review_detail.html', review=review)
-    else:
-        # 리뷰 없음
-        return render_template('review_not_found.html')
+@application.route('/view_review_detail/<name>')
+def view_review_detail(name):
+    data = DB.get_review_byname(str(name))
+    return render_template("리뷰상세.html", name=name, data=data)
+
 
 @application.route('/show_heart/<name>/', methods=['GET'])
 def show_heart(name):
