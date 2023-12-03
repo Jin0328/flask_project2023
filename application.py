@@ -244,5 +244,30 @@ def unlike(name):
     my_heart = DB.update_heart(session['id'],'N',name)
     return jsonify({'msg': '안좋아요 완료!'})
 
+
+@application.route("/add_to_cart/<name>", methods=['GET'])
+def add_to_cart(name):
+    user_id = session.get('id')  # 현재 로그인한 사용자의 ID 가져오기
+    if user_id:
+        DB.add_to_cart(user_id, name)  # 사용자의 장바구니에 상품 추가
+        return redirect(url_for('view_cart'))
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        return render_template("login.html", message="로그인이 필요합니다.")
+
+
+
+@application.route("/cart")
+def view_cart():
+    # 현재 로그인한 사용자의 장바구니 조회 (가정: user_id는 세션에 저장되어 있다고 가정)
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+    if user_id:
+        cart_items = DB.get_cart(user_id)  # 사용자의 장바구니 정보 가져오기
+        # 장바구니 화면에 cart_items 전달하여 렌더링
+        return render_template("cart.html", cart_items=cart_items)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        return render_template("login.html", message="로그인이 필요합니다.")
+
 if __name__ == "__main__":
     application.run(host='0.0.0.0')
