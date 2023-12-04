@@ -4,33 +4,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0;" />
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <link href="agreement.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='agreement.css') }}">
     <title>이화상점: 회원가입 약관 동의</title>
-        <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar_logo">
-                <a href="/main_page">  <!-- 로고 누르면 홈화면으로 연결 -->
-                    <i class="fa-brands fa-pagelines"></i>
-                    <p>EWHA STORE</p>
-                </a>
-            </div>
-
-            <ul class="navbar_menu">
-                {% if session['id'] %}
-                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
-                <li><a href="/login">로그인</a></li>
-                {% endif %}
-                <li><a href="/certification">이화인증</a></li>
-                <li><a href="/my_page">마이페이지</a></li>
-                <li><a href="">장바구니</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
+    
+{% extends "index.html" %} 
+{% block section %} 
             <h1>이화상점</h1>
             <h2>전체동의</h2>
             <hr>
@@ -70,8 +49,6 @@
 
                 <input type="submit" value="확인" />
             </form>
-            <a href="로그인.html"><button>취소</button></a>
-        </section>
-    </main>
-</body>
+            <a href="/login"><button>취소</button></a>
+{% endblock section %}
 </html>
