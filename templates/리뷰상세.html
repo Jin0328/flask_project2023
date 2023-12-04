@@ -2,43 +2,24 @@
 <html>
 <head>
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-<link href="main.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Sansation+Light&display=swap" rel="stylesheet" />
+<!--link href="main.css" rel="stylesheet" /-->
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
 <title>Document</title>
 </head>
 
 <body>
-<div class="v68_48">
-<div class="v68_49"></div>
-
-<div class="navbar">
-        <ul>
-          {% if session['id'] %}
-          <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-          <li><a href="/login">로그인</a></li>
-          {% endif %}
-          <li><a href="/">판매상품</a></li>
-          <li><a href="/certification">이화인증</a></li>
-          <li><a href="/my_page">마이페이지</a></li>
-          <li><a href="#">장바구니</a></li>
-        </ul>
-    </div>
-
-<div class="v68_53">
-<div class="v68_54"></div>
-<div class="v68_55"></div>
-<div class="v68_56"></div>
-<div class="v68_57"></div>
-<div class="v68_58"></div>
-</div>
-<span class="상품명">이화 키링 | 상품리뷰</span>
-<span class="v68_60">ewha1</span>
-<div class="상점사진"></div>
-<span class="구매자정보">· 20대 · 여성</span>
-<div class="v68_63"></div>
-<span class="v68_64">| 2023.10.18</span>
-<span class="리뷰제목">{{data.title}}</span>
-<span class="리뷰내용">{{data.review}}</span>
-<span class="v68_67">이 리뷰가 도움이 되었나요?</span>
+<div class="v3_870">
+	<img class="v38_275_t" src="../../{{data.img_path}}", width=627, height=600>
+	<div class="v5_1562">
+        <span class="상품명">{{name}} | 상품리뷰</span>
+        <span class="v68_60">ewha1</span>
+        <div class="상점사진"></div>
+        <span class="구매자정보">· 20대 · 여성</span>
+        <span class="리뷰제목">{{data.title}}</span>
+        <span class="리뷰내용">{{data.review}}</span>
+        <span class="v68_67">이 리뷰가 도움이 되었나요?</span>
 <div class="리뷰도움버튼">
 <button class="heartButton">
   <span class="heartIcon"></span>
@@ -50,9 +31,20 @@
 <span class="상품옵션">상품 옵션 (곰돌이)</span>
 <div class="name"></div>
 <span class="판매자">판매자 | 송충이 상점</span>
-<div class="상품이미지"><img src="../../static/images/{{data.img_path}}", width=140, height=200></span>
 <div class="v68_76"></div></div>
-</div>
+
+<div class="navbar">
+        <ul>
+			{% if session['id'] %}
+			<li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
+			<li><a href="/login">로그인</a></li>
+			{% endif %}
+            <li><a href="/">판매상품</a></li>
+            <li><a href="/certification">이화인증</a></li>
+            <li><a href="/reg_items">마이페이지</a></li>
+            <li><a href="#">장바구니</a></li>
+        </ul>
+    </div>
+    </div>
 </body>
 </html>
-

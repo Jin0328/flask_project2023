@@ -7,22 +7,10 @@
     <link href="{{ url_for('static', filename='ewhaCertification.css') }}" rel="stylesheet" />
     <title>이화상점: 이화인인증</title>
 </head>
-<body>
-    <header>
-        <div class="navbar">
-        <ul>
-            {% if session['id'] %}
-            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-            <li><a href="/login">로그인</a></li>
-            {% endif %}
-            <li><a href="/">판매상품</a></li>
-            <li><a href="/certification">이화인증</a></li>
-            <li><a href="/my_page">마이페이지</a></li>
-            <li><a href="#">장바구니</a></li>
-        </ul>
-    </div>
-    </header>
-    <main>
+    
+{% extends "index.html" %} 
+{% block section %} 
+    <body>
         <h1>이화상점</h1>
         <section>
             <h2>이화인 인증</h2>
@@ -41,12 +29,13 @@
             <form action="test.html" method="post">
                 <input type="text" id="name" placeholder="이름" style="font-size:20px;" required />
                 <input type="text" id="major" placeholder="전공" style="font-size:20px;" required />
-                <span class="questionList">소방 안전교육 3번째 영상의 제목은 무엇인가요?</span>
-                <a href=""><img src="/static/images/refreshButton.png" /></a>
+                <span class="questionList">{{random_question}}</span>
+                <a href="{{ url_for('view_certification') }}"><img src="/static/images/refreshButton.png" /></a>
                 <input type="text" id="answer" placeholder="정답입력" style="font-size: 20px;" required />
                 <input type="submit" value="인증하기" />
             </form>
         </section>
-    </main>
-</body>
+    </body>
+{% endblock section %}
+
 </html>

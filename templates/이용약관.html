@@ -4,25 +4,12 @@
     <meta name="viewport" content="width=device-width initial-scale=1.0;" />
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <link href="agreement.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='agreement.css') }}">
     <title>이화상점: 회원가입 약관 동의</title>
 </head>
-<body>
-    <header>
-        <div class="navbar">
-        <ul>
-            <li><a href="/login">로그인</a></li>
-            <li><a href="agreement.html">회원가입</a></li>
-            <li><a href="#">판매상품</a></li>
-            <li><a href="ewhaCertification.html">이화인증</a></li>
-            <li><a href="/my_page">마이페이지</a></li>
-            <li><a href="#">장바구니</a></li>
-        </ul>
-    </div>
-    </header>
-
-    <main>
-        <section>
+    
+{% extends "index.html" %} 
+{% block section %} 
             <h1>이화상점</h1>
             <h2>전체동의</h2>
             <hr>
@@ -62,8 +49,6 @@
 
                 <input type="submit" value="확인" />
             </form>
-            <a href="로그인.html"><button>취소</button></a>
-        </section>
-    </main>
-</body>
+            <a href="/login"><button>취소</button></a>
+{% endblock section %}
 </html>
