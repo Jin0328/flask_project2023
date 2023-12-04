@@ -1,3 +1,48 @@
+*{
+box-sizing: border-box;
+}
+body {
+font-size: 20px;
+width:1500px;
+height:800px;
+}
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width:100%;
+    height:60px;
+    background-color: #333;
+    z-index: 6;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    text-align: center; 
+}
+.navbar li {
+    font-size:18px;
+    display: inline-block; 
+    margin: 0 10px; 
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+.logo i {
+    font-size:25px;
+    color:white;
+}
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #555;
+}
 h1{
 position:absolute;
 left:633px;
@@ -6,19 +51,16 @@ font-size:36px;
 font-weight:bold;
 color:rgb(0,70,42,0.67);
 }
-
 h2{
 position:absolute;
 left:104px;
 top:160px;
 font-size:24px;
 }
-
 mark{
 background-color:rgb(0,70,42,0.37);
 border-radius:6px;
 }
-
 img[src="/static/images/ewhaCertificationMark.png"]{
 position:absolute;
 left:251px;
@@ -26,13 +68,11 @@ top:180px;
 width:35px;
 height:35px;
 }
-
 #certificationExample{
 position: absolute;
 left:106px;
 top:224px;
 }
-
 img[src="/static/images/ewhaMarketExample.png"]{
 position:absolute;
 left:84px;
@@ -40,7 +80,6 @@ top:275px;
 width:671px;
 height:408px;
 }
-
 #hilighting{
 width:280px;
 height:24px;
@@ -48,17 +87,13 @@ position:absolute;
 left:442px;
 top:470px;
 border: 7px solid rgb(0,70,42,0.37);
-
 border-radius:5px;
 }
-
 #moreInfo{
 position:absolute;
 left:1270px;
 top:220px;
-
 }
-
 a.moreInfo{
 position:absolute;
 left:1265px;
@@ -68,9 +103,7 @@ text-decoration:none;
 border-radius:6px;
 color:black;
 padding:7px 5px;
-
 }
-
 #name{
 width:446px;
 height:44px;
@@ -79,7 +112,6 @@ left:835px;
 top:323px;
 border:1px solid #7d7777;
 }
-
 #major{
 width:446px;
 height:44px;
@@ -88,7 +120,6 @@ left:835px;
 top:396px;
 border:1px solid #7d7777;
 }
-
 .questionList{
 width:446px;
 height:44px;
@@ -100,16 +131,13 @@ text-align:left;
 line-height:44px;
 font-size:18px;
 }
-
 img[src="/static/images/refreshButton.png"]{
 position:absolute;
 left:1295px;
 top:483px;
 width:30px;
 height:30px;
-
 }
-
 #answer{
 width:446px;
 height:44px;
@@ -118,7 +146,6 @@ left:835px;
 top:554px;
 border:1px solid #7d7777;
 }
-
 input[type="submit"]{
 position:absolute;
 left:1136px;
@@ -130,6 +157,7 @@ color:white;
 border-radius:6px;
 font-size:23px;
 }
+
 
 
 
