@@ -2,37 +2,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0;" />
-<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-{# <link href="login.css" rel="stylesheet" /> #}
-<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-<title>이화상점: 로그인</title>
-<script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    {# <link href="login.css" rel="stylesheet" /> #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+    <title>이화상점: 로그인</title>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar_logo">
-                <a href="/main_page">  <!-- 로고 누르면 홈화면으로 연결 -->
-                    <i class="fa-brands fa-pagelines"></i>
-                    <p>EWHA STORE</p>
-                </a>
-            </div>
-
-            <ul class="navbar_menu">
-                {% if session['id'] %}
-                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
-                <li><a href="/login">로그인</a></li>
-                {% endif %}
-                <li><a href="/certification">이화인증</a></li>
-                <li><a href="/my_page">마이페이지</a></li>
-                <li><a href="">장바구니</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-
+    
+{% extends "index.html" %} 
+{% block section %} 
+    <body>
             {% with mesg = get_flashed_messages() %}
             {% if mesg != [] %}
             <script>alert("{{ mesg[0] }}")</script>
@@ -45,8 +24,8 @@
                 <input type="password" class="loginInput" id="password" name = "pw" placeholder="패스워드" required style="font-size:20px;" />
                 <input type="submit" value="로그인" />
             </form>
-            <a id="signUp" href="{{ url_for('static', filename='이용약관.html') }}">회원가입</a>
-        </section>
-    </main>
-</body>
+            <a id="signUp" href="/agreement">회원가입</a>
+    </body>
+{% endblock section %}
+
 </html>
