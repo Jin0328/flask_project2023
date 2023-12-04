@@ -1,7 +1,7 @@
 <html>
-        <head>
-            <title>main_first</title>
-            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main_first.css') }}">
+<head>
+    <title>main_first</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main_first.css') }}">
 
     <script>
         function changeColor(index) {
@@ -10,45 +10,28 @@
             items[index].classList.add('active');
         }
     </script>
-        </head>
-
-        <body>
-            <div class=e83_680>
-
-		<span  class="e84_14">이화상점</span>
-
-
+</head>
+    
+{% extends "index.html" %}
+    
+{% block section %}
+<div class=e83_680>
+<span  class="e84_14">이화상점</span>
 <div class="button1">
     <div class="ewhaimage"></div>
     <div class="button1_1">
         <a href="/list" class="button1_2 button">Shop Now</a>
     </div>
 </div>
-
-<div class="navbar">
-    <ul>
-        {% if session['id'] %}
-        <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-        <li><a href="/login">로그인</a></li>
-        {% endif %}
-        <li><a href="/list">판매상품</a></li>
-        <li><a href="/certification">이화인증</a></li>
-        <li><a href="/my_page">마이페이지</a></li>
-        <li><a href="#">장바구니</a></li>
-    </ul>
-</div>
-
-    <ul class="pagination">
-        <li class="pagination-item active" onclick="changeColor(0)"></li>
-        <li class="pagination-item" onclick="changeColor(1)"></li>
-        <li class="pagination-item" onclick="changeColor(2)"></li>
-        <li class="pagination-item" onclick="changeColor(3)"></li>
-        <li class="pagination-item" onclick="changeColor(4)"></li>
-    </ul>
-
-
-
-		<div class="e86_291">
+<ul class="pagination">
+    <li class="pagination-item active" onclick="changeColor(0)"></li>
+    <li class="pagination-item" onclick="changeColor(1)"></li>
+    <li class="pagination-item" onclick="changeColor(2)"></li>
+    <li class="pagination-item" onclick="changeColor(3)"></li>
+    <li class="pagination-item" onclick="changeColor(4)"></li>
+</ul>
+    
+    <div class="e86_291">
 			<div class=product1>
 				<div  class="image1"></div>
 				<span  class="num1">구매 150    마켓찜 35 </span>
@@ -82,5 +65,6 @@
 				<span  class="p1">배지 상점 바로가기</span>
 				<div  class="배지이미지"></div>
 			</div>
-        </body>
-    </html>
+    
+{% endblock section %}
+</html>
