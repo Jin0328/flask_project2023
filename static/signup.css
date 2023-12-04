@@ -150,7 +150,18 @@ line-height:59px;
 border-radius:6px;
 }
 
-
+footer{
+    width:100%;
+    height: 70px;
+    position : absolute;
+    top : 100%;
+    left: 0%;
+    background-color:rgba(46, 83, 50, 0.73);
+    color:white;
+    text-align:center;
+    line-height:70px;
+    margin-top: 150px;
+}
 
 
 
