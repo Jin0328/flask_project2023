@@ -8,19 +8,36 @@
     <title>이화상점: 마이페이지</title>
     <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-
-{% extends "index.html" %} 
-{% block section %} 
-    <section class="store_profile">
-        <div class="background">
-            <a href=""><img src="/static/images/edit_img.png" /></a>
-            <img class="profile_img" src="/static/images/profile_img.png" />
-            <div class="store_name"><b>송충이 상점</b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
-            <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
-            <div class="bio">이번 대동제 24번 부스에서도 만나요</div>
-        </div>
-    </section>
-
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar_logo">
+                <a href="/main_page">  <!-- 로고 누르면 홈화면으로 연결 -->
+                    <i class="fa-brands fa-pagelines"></i>
+                    <p>EWHA STORE</p>
+                </a>
+            </div>
+            <ul class="navbar_menu">
+                {% if session['id'] %}
+                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+                <li><a href="/login">로그인</a></li>
+                {% endif %}
+                <li><a href="/certification">이화인증</a></li>
+                <li><a href="/my_page">마이페이지</a></li>
+                <li><a href="">장바구니</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="store_profile">
+            <div class="background">
+                <a href=""><img src="/static/images/edit_img.png" /></a>
+                <img class="profile_img" src="/static/images/profile_img.png" />
+                <div class="store_name"><b>송충이 상점</b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
+                <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
+                <div class="bio">이번 대동제 24번 부스에서도 만나요</div>
+            </div>
+        </section>
         <section class="goodsList">
             <a class="add_goods" href="/reg_items">
                 <img src="/static/images/add_goods.png" />
@@ -104,14 +121,12 @@
             </a>
         </section>
         <hr class="divide">
-
         <section class="myLikeList">
             <div>
                 <a class="market_like" href=""><b>마켓찜</b><hr /><img src="/static/images/like_img.png" /></a>
                 <a class="product_like" href="/my_page2"><b>상품찜</b></a>
                 <br />
             </div>
-
             <div class="market_list">
                 <a class="like_store" href="">
                     <div class="store_img"></div>
@@ -203,6 +218,7 @@
                 </a>
             </div>
         </section>
-{% endblock section %}
-
+    </main>
+    <footer>By 오소와 오소플은 처음이지?</footer>
+</body>
 </html>
