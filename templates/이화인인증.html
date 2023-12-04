@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,30 +6,11 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link href="{{ url_for('static', filename='ewhaCertification.css') }}" rel="stylesheet" />
     <title>이화상점: 이화인인증</title>
-        <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <header>
-        <nav class="navbar">
-            <div class="navbar_logo">
-                <a href="/main_page">  <!-- 로고 누르면 홈화면으로 연결 -->
-                    <i class="fa-brands fa-pagelines"></i>
-                    <p>EWHA STORE</p>
-                </a>
-            </div>
-
-            <ul class="navbar_menu">
-                {% if session['id'] %}
-                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
-                <li><a href="/login">로그인</a></li>
-                {% endif %}
-                <li><a href="/certification">이화인증</a></li>
-                <li><a href="/my_page">마이페이지</a></li>
-                <li><a href="">장바구니</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
+    
+{% extends "index.html" %} 
+{% block section %} 
+    <body>
         <h1>이화상점</h1>
         <section>
             <h2>이화인 인증</h2>
@@ -55,6 +35,7 @@
                 <input type="submit" value="인증하기" />
             </form>
         </section>
-    </main>
-</body>
+    </body>
+{% endblock section %}
+
 </html>
