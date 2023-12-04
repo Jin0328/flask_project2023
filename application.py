@@ -120,10 +120,10 @@ def view_review():
     for i in range(row_count):#last row
         if (i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())
-                                                 [i*per_row:])
+            [i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())
-                                                 [i*per_row:(i+1)*per_row])
+            [i*per_row:(i+1)*per_row])
     return render_template(
         "리뷰_전체조회.html",
         datas=data.items(),
@@ -131,7 +131,7 @@ def view_review():
         row2=locals()['data_1'].items(),
         limit=per_page,
         page=page,
-        page_count=int((item_counts/per_page)+1),
+        page_count=int((item_counts/per_page)+1), 
         total=item_counts)
 
 
@@ -159,8 +159,12 @@ def reg_review():
     except Exception as e:
         print("Error:", str(e))
         return str(e)
-
-    return render_template("리뷰_전체조회.html")
+    data = DB.get_reviews()
+    item_counts = len(data)
+    item_counts = len(data)
+    per_page = 6
+    page_count = int((item_counts / per_page) + 1)
+    return render_template("리뷰_전체조회.html", total=item_counts, page_count=page_count)
 
 
 
