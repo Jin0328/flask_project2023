@@ -1,9 +1,6 @@
 *{
 box-sizing: border-box;
 }
-body {
-font-size: 20px;
-}
 
 .navbar {
     position: fixed;
@@ -44,110 +41,139 @@ font-size: 20px;
 .navbar a:hover {
     background-color: #555;
 }
+body {
+font-size: 20px;
+height:1000px;
+position: relative;
+margin:0px;
+}
+
 h1{
-position:absolute;
-left:654px;
-top:100px;
+margin:100px; 
+text-align:center;
 font-size:36px;
 font-weight:bold;
 color:rgb(0,70,42,0.67);
 }
-.textTypeInput{
+h2{
 position:absolute;
-left:546px;
-width:576px;
-height:43px;
-border: 1px solid #7d7777
-}
-.Label{
-position:absolute;
-left:345px;
-font-size:20px;
-line-height:43px;
-}
-label[for="id"]{
-top:204px;
-}
-#id{
-top:204px;
-}
-input[type="button"]{
-position:absolute;
-left:1145px;
-top:204px;
-width:87px;
-height:43px;
-background-color:#7d7777;
-color:white;
+left:308px;
+top:173px;
 text-align:center;
-line-height:43px;
-font-size:18px;
-border:1px solid black;
+font-size:24px;
 }
-label[for="password"]{
-top:259px;
-}
-#password{
-top:259px;
-}
-label[for="confirmPassword"]{
-top:314px;
-}
-#confirmPassword{
-top:314px;
-}
-label[for="name"]{
-top:369px;
-}
-#name{
-top:369px;
-}
-label[for="email"]{
-top:424px
-}
-#email{
-top:424px;
-}
-label[for="select-FirstTelNum"]{
-top:479px;
-}
-select{
+hr{
 position:absolute;
-left:546px;
-top:479px;
-width:180px;
-height:47px;
-font-size:20px;
+left:306px;
+top:227.99px;
+width:870.04px;
+}
+.checkbox{
+position:absolute;
+left:306px;
+width:35px;
+height:35px;
+}
+label{
+margin:0px 10px;
+position:absolute;
+left:344px;
+font-size:24px;
+text-align: center;
+line-height:35px;
+}
+#agreeAll{
+top:256px;
+}
+label[for="agreeAll"]{
+top:256px;
+font-size:24px;
+font-weight:bold;
+}
+#agreeTermsOfServices{
+top:301px;
+}
+label[for="agreeTermsOfServices"]{
+top:301px;
+}
+span{
+position:absolute;
+left:300px;
+width: 900px;
+height:120px;
+overflow:scroll;
 border: 1px solid #7d7777;
 }
-#middleTelNum{
-position:absolute;
-left:741px;
-top:479px;
-width:180px;
-height:43px;
-border:1px solid #7d7777;
+#termsOfService{
+top:346px;
 }
-#lastTelNum{
+#agreePrivacyPolicy{
+top:473px;
+}
+label[for="agreePrivacyPolicy"]{
+top:473px;
+}
+#privacyPolicy{
+top: 521px;
+}
+#agreePromotion{
+top:651px;
+}
+label[for="agreePromotion"]{
+top:651px;
+}
+#promotion{
+top: 696px;
+}
+#smsPromotion{
 position:absolute;
-left:942px;
-top:479px;
-width:180px;
-height:43px;
-border:1px solid #7d7777;
+left:306px;
+top:826px;
+width:30px;
+height:30px;
+}
+label[for="smsPromotion"]{
+position:absolute;
+left:344px;
+top:826px;
+}
+#emailPromotion{
+position:absolute;
+left:655px;
+top:826px;
+width:30px;
+height:30px;
+}
+label[for="emailPromotion"]{
+position:absolute;
+left:693px;
+top:826px;
 }
 input[type="submit"]{
 position:absolute;
-left:586px;
-top:590px;
-width:269px;
-height:59px;
+left:760px;
+top:900px;
+width:450px;
+height:64px;
+border:1px solid black;
+border-radius:8px;
 background-color:#00462A;
-color: white;
-text-align:center;
-font-size:28px;
-line-height:59px;
-border-radius:6px;
+color:white;
+font-size:24px;
+}
+a button{
+position:absolute;
+left:290px;
+top:900px;
+width:450px;
+height:64px;
+border:1px solid black;
+border-radius:8px;
+background-color:white;
+font-size:24px;
+}
+a{
+text-decoration:none;
 }
 
 footer{
@@ -162,7 +188,6 @@ footer{
     line-height:70px;
     margin-top: 150px;
 }
-
 
 
 
