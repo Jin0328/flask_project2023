@@ -49,8 +49,8 @@
             <form action="test.html" method="post">
                 <input type="text" id="name" placeholder="이름" style="font-size:20px;" required />
                 <input type="text" id="major" placeholder="전공" style="font-size:20px;" required />
-                <span class="questionList">소방 안전교육 3번째 영상의 제목은 무엇인가요?</span>
-                <a href=""><img src="/static/images/refreshButton.png" /></a>
+                <span class="questionList">{{random_question}}</span>
+                <a href="{{ url_for('view_certification') }}"><img src="/static/images/refreshButton.png" /></a>
                 <input type="text" id="answer" placeholder="정답입력" style="font-size: 20px;" required />
                 <input type="submit" value="인증하기" />
             </form>

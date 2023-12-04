@@ -3,6 +3,7 @@ from flask import jsonify
 from database import DBhandler
 import hashlib
 import sys
+import random
 
 application = Flask(__name__)
 application.config["SECRET_KEY"] = "helloosp"
@@ -93,7 +94,14 @@ def review_page():
 
 @application.route("/certification")
 def view_certification():
-    return render_template("이화인인증.html")
+    questions = [
+        "소방 안전교육 3번째 영상의 제목은 무엇인가요?",
+        "안전교육 2번째 영상의 제목은 무엇인가요?",
+        "장애인식개선 교육을 실시하는 주체는 어디인가요?",
+        "장애인식개선 교육의 시작일은? 5월 00일(숫자만)"
+    ]
+    random_question = random.choice(questions)
+    return render_template("이화인인증.html", random_question=random_question)
 
 
 @application.route("/badge")
