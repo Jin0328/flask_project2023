@@ -10,18 +10,6 @@
 <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="navbar">
-        <ul>
-            {% if session['id'] %}
-            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-            <li><a href="/login">로그인</a></li>
-            {% endif %}
-            <li><a href="/">판매상품</a></li>
-            <li><a href="/certification">이화인증</a></li>
-            <li><a href="/my_page">마이페이지</a></li>
-            <li><a href="#">장바구니</a></li>
-        </ul>
-    </div>
     <header>
         <nav class="navbar">
             <div class="navbar_logo">
@@ -30,7 +18,6 @@
                     <p>EWHA STORE</p>
                 </a>
             </div>
-
             <ul class="navbar_menu">
                 {% if session['id'] %}
                 <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
