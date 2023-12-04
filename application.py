@@ -49,7 +49,7 @@ def logout_user():
 
 @application.route("/")
 def hello():
-    return redirect(url_for('view_list'))
+    return redirect(url_for('main_page'))
 
 @application.route("/list")
 def view_list():
