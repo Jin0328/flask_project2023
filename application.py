@@ -68,16 +68,20 @@ def view_list():
         data = DB.get_items_bycategory(category)
     data = dict(sorted(data.items(), key=lambda x: x[0], reverse=False))
     item_counts = len(data)
+    
     if item_counts<=per_page:
         data = dict(list(data.items())[:item_counts])
     else:
         data = dict(list(data.items())[start_idx:end_idx])
+        
     tot_count = len(data)
+    
     for i in range(row_count):#last row
         if (i == row_count-1) and (tot_count%per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
         else: 
             locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
+            
     return render_template(
         "상품전체조회.html", #list.html으로 ppt에는 되어있던데 이게 맞는지?
         datas=data.items(),
