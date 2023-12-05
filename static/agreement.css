@@ -1,3 +1,53 @@
+*{
+box-sizing: border-box;
+}
+
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width:100%;
+    height:60px;
+    background-color: #333;
+    z-index: 6;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+    text-align: center; 
+}
+.navbar li {
+    font-size:18px;
+    display: inline-block; 
+    margin: 0 10px; 
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+.logo i {
+    font-size:25px;
+    color:white;
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #555;
+}
+body {
+font-size: 20px;
+height:1000px;
+position: relative;
+margin:0px;
+}
+
 h1{
 margin:100px; 
 text-align:center;
@@ -5,7 +55,6 @@ font-size:36px;
 font-weight:bold;
 color:rgb(0,70,42,0.67);
 }
-
 h2{
 position:absolute;
 left:308px;
@@ -13,21 +62,18 @@ top:173px;
 text-align:center;
 font-size:24px;
 }
-
 hr{
 position:absolute;
 left:306px;
 top:227.99px;
 width:870.04px;
 }
-
 .checkbox{
 position:absolute;
 left:306px;
 width:35px;
 height:35px;
 }
-
 label{
 margin:0px 10px;
 position:absolute;
@@ -36,25 +82,20 @@ font-size:24px;
 text-align: center;
 line-height:35px;
 }
-
 #agreeAll{
 top:256px;
 }
-
 label[for="agreeAll"]{
 top:256px;
 font-size:24px;
 font-weight:bold;
 }
-
 #agreeTermsOfServices{
 top:301px;
 }
-
 label[for="agreeTermsOfServices"]{
 top:301px;
 }
-
 span{
 position:absolute;
 left:300px;
@@ -63,35 +104,27 @@ height:120px;
 overflow:scroll;
 border: 1px solid #7d7777;
 }
-
 #termsOfService{
 top:346px;
 }
-
 #agreePrivacyPolicy{
 top:473px;
 }
-
 label[for="agreePrivacyPolicy"]{
 top:473px;
 }
-
 #privacyPolicy{
 top: 521px;
 }
-
 #agreePromotion{
 top:651px;
 }
-
 label[for="agreePromotion"]{
 top:651px;
 }
-
 #promotion{
 top: 696px;
 }
-
 #smsPromotion{
 position:absolute;
 left:306px;
@@ -99,13 +132,11 @@ top:826px;
 width:30px;
 height:30px;
 }
-
 label[for="smsPromotion"]{
 position:absolute;
 left:344px;
 top:826px;
 }
-
 #emailPromotion{
 position:absolute;
 left:655px;
@@ -113,13 +144,11 @@ top:826px;
 width:30px;
 height:30px;
 }
-
 label[for="emailPromotion"]{
 position:absolute;
 left:693px;
 top:826px;
 }
-
 input[type="submit"]{
 position:absolute;
 left:760px;
@@ -132,7 +161,6 @@ background-color:#00462A;
 color:white;
 font-size:24px;
 }
-
 a button{
 position:absolute;
 left:290px;
@@ -144,9 +172,22 @@ border-radius:8px;
 background-color:white;
 font-size:24px;
 }
-
 a{
 text-decoration:none;
+}
+
+footer{
+    width:100%;
+    height: 70px;
+    position : absolute;
+    top : 100%;
+    left: 0%;
+    background-color:rgba(46, 83, 50, 0.73);
+    color:white;
+    text-align:center;
+    line-height:70px;
+    margin-top: 150px;
+    font-size:16px;
 }
 
 

@@ -9,9 +9,27 @@
     <title>이화상점: 이화인인증</title>
     <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-    
-{% extends "index.html" %} 
-{% block section %} 
+<body>
+    <header>
+    <div class="navbar">
+    <ul>
+        <li class="logo">
+            <a href="/main_page">
+                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+            </a>
+        </li>
+        <li><a href="/certification">이화인 인증</a></li>
+        <li><a href="/list">판매상품</a></li>
+        <li><a href="">장바구니</a></li>
+        <li><a href="/my_page">마이페이지</a></li>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+    </ul>
+    </div>
+    </header>
+    <main>
         <h1>배지란?</h1>
         <span id="hilighting"></span>
         <p>다양한 배지들을 획득해보세요!</p>
@@ -22,10 +40,10 @@
         <p>첫화면의 ‘배지 스토어 바로가기’ 를 확인해보세요.</p>
         <p>또는 전체 상품조회 화면의 ‘인증마켓’ 필터를 사용해보세요.</p>
 
-        <img id="popularStoreImg" src="/static/images/badge.png" />
-        <img id="reviewRateImg" src="/static/images/badge.png" />
-        <img id="reviewNumImg" src="/static/images/badge.png" />
-        <img id="sellNumImg" src="/static/images/badge.png" />
+        <img id="popularStoreImg" src="/static/images/badge1.png" />
+        <img id="reviewRateImg" src="/static/images/badge2.png" />
+        <img id="reviewNumImg" src="/static/images/badge3.png" />
+        <img id="sellNumImg" src="/static/images/badge4.png" />
         <img id="ewhaCertificationImg" src="/static/images/ewhaCertificationMark.png" />
 
         <span id="popularStore">선호 스토어 배지<br><span>스토어 좋아요 100개 이상시</span></span>
@@ -33,5 +51,7 @@
         <span id="reviewNum">리뷰왕 배지<br><span>스토어 리뷰 100개 이상시</span></span>
         <span id="sellNum">판매왕 배지<br><span>판매 실적 100개 이상시</span></span>
         <span id="ewhaCertification">이화인 배지<br><span>이화인 인증 완료시</span></span>
-{% endblock section %}
+        <footer>By 오소와 오소플은 처음이지?</footer>
+    </main>
+</body>
 </html>

@@ -6,11 +6,29 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link href="{{ url_for('static', filename='ewhaCertification.css') }}" rel="stylesheet" />
     <title>이화상점: 이화인인증</title>
+        <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-    
-{% extends "index.html" %} 
-{% block section %} 
-    <body>
+<body>
+    <header>
+    <div class="navbar">
+    <ul>
+        <li class="logo">
+            <a href="/main_page">
+                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+            </a>
+        </li>
+        <li><a href="/certification">이화인 인증</a></li>
+        <li><a href="/list">판매상품</a></li>
+        <li><a href="">장바구니</a></li>
+        <li><a href="/my_page">마이페이지</a></li>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+    </ul>
+    </div>
+    </header>
+    <main>
         <h1>이화상점</h1>
         <section>
             <h2>이화인 인증</h2>
@@ -19,12 +37,10 @@
             <img src="/static/images/ewhaMarketExample.png" />
             <span id="hilighting"></span>
         </section>
-
         <section>
             <span id="moreInfo">배지에 대해</span>
             <a class="moreInfo" href="/badge">더 알아보기</a>
         </section>
-
         <section>
             <form action="test.html" method="post">
                 <input type="text" id="name" placeholder="이름" style="font-size:20px;" required />
@@ -34,8 +50,8 @@
                 <input type="text" id="answer" placeholder="정답입력" style="font-size: 20px;" required />
                 <input type="submit" value="인증하기" />
             </form>
+            <footer>By 오소와 오소플은 처음이지?</footer>
         </section>
-    </body>
-{% endblock section %}
-
+    </main>
+</body>
 </html>

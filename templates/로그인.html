@@ -2,30 +2,52 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width initial-scale=1.0;" />
-    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    {# <link href="login.css" rel="stylesheet" /> #}
-    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-    <title>이화상점: 로그인</title>
+<link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+{# <link href="login.css" rel="stylesheet" /> #}
+<link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+<title>이화상점: 로그인</title>
+<script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
-    
-{% extends "index.html" %} 
-{% block section %} 
-    <body>
+<body>
+    <header>
+        <div class="navbar">
+    <ul>
+        <li class="logo">
+            <a href="/main_page">
+                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+            </a>
+        </li>
+        <li><a href="/certification">이화인 인증</a></li>
+        <li><a href="/list">판매상품</a></li>
+        <li><a href="">장바구니</a></li>
+        <li><a href="/my_page">마이페이지</a></li>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+    </ul>
+    </div>
+    </header>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
             {% with mesg = get_flashed_messages() %}
             {% if mesg != [] %}
             <script>alert("{{ mesg[0] }}")</script>
             {% endif %}
             {% endwith %}
             <h1>이화상점</h1>
-
             <form action="/login_confirm" method="POST">
                 <input type="text" class="loginInput" id="id" name = "id" placeholder="아이디" required style="font-size:20px;" />
                 <input type="password" class="loginInput" id="password" name = "pw" placeholder="패스워드" required style="font-size:20px;" />
                 <input type="submit" value="로그인" />
             </form>
-            <a id="signUp" href="/agreement">회원가입</a>
-    </body>
-{% endblock section %}
-
+            <a id="signUp" href="{{ url_for('static', filename='이용약관.html') }}">회원가입</a>
+ 	        <footer>By 오소와 오소플은 처음이지?</footer>
+        </section>
+    </main>
+</body>
 </html>

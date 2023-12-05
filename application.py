@@ -46,7 +46,7 @@ def register_user():
 @application.route("/logout")
 def logout_user():
     session.clear()
-    return redirect(url_for('view_list'))
+    return redirect(url_for('main_page'))
 
 @application.route("/")
 def hello():
@@ -85,7 +85,10 @@ def view_list():
 @application.route('/main_page')
 def main_page():
     return render_template('main_first.html')
-
+    
+@application.route("/agreement")
+def agreement():
+    return render_template("이용약관.html")
 
 @application.route('/review')
 def review_page():

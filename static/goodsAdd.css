@@ -1,4 +1,3 @@
-
 .formImg{
     width: 518px; height: 387px;
     position:absolute; left: 95px; top: 137px;
@@ -12,57 +11,50 @@
     cursor: pointer;
     font-size: 1em;
 }
-#chooseFile {
+#file {
     visibility: hidden;
 }
-circle{
-    fill:#D9D9D9;
-}
-.select{
-    fill:#5A5A5A;
-}
+
 .divImg{
     float:left;
     position: relative; top: 0.1px; 
     z-index: 2;
 }
 .divForm{
-    position: relative; left: 250px; top: 130px;
-    width: 1150px;
+    position: relative; left: 450px; top: 130px;
+    width: 550px;
     z-index: 1;
+    float: left;
 }
 .divForm label{
     font-size: 25px;
     color: #000;
     text-align: center;
 }
-.inputText{
+.divForm input{
     width: 500px; height: 30px;
     text-align: center;
     border: none;
-    position: relative; top: -5px; left: 25px;
+    position: relative; top: -35px; left: 142px;
     font-size: 120%;
 }
 hr{
     width: 500px;
-    position: relative; left: 45px; top: -3px;
-}
-.divFormID{
-    position: relative; left: 0px; top: -5px;
+    position: relative; left: 120px; top: -35px;
 }
 .inputSelect{
     border: none;
     width: 500px; height: 30px;
     text-align: center;
     font-size: 120%;
-    position: relative; top: -5px; left: 53px;
+    position: relative; top: -5px;
 }
-#goodsPrice{
+#money{
     width: 250px; height: 30px;
     text-align: right;
     border: none;
     font-size: 120%;
-    position: relative; left: 110px; bottom: 7px;
+    position: relative; bottom: 7px;
 }
 ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -70,28 +62,22 @@ hr{
 }
 .won{
     float: right;
-    position: relative; left: -250px; bottom: 22px;
+    position: relative; left: -100px; bottom: 22px;
     font-size: 20px;
 }
-#goodsCity{
-    border: none;
-    width: 240px; height: 30px;
-    text-align: center;
-    font-size: 120%;
-    position: relative; top: -5px; left: 100px;
-}
-#goodsText{
+#intro{
     width: 1200px; height: 200px;
     font-size: 120%;
-    position: relative; bottom: 150px; left: -130px;
+    position: relative; left: 60px;
     padding: 10px;
     border-radius: 5px;
+    float:right;
 }
 #goodsSubmit{
     width: 400px; height: 50px;
     font-size: 120%;
     float: right;
-    position: relative; bottom: 120px; left: -50px;
+    position: relative; left: -30px; top: 40px;
     border: none;
     background-color: #00462a;
     color: #fff;
@@ -123,8 +109,9 @@ hr{
 }
 #myform input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 rgba(12, 166, 105, 1);
-<<<<<<< HEAD
 }
-=======
+#previewImg {
+    max-width: 100%;
+    max-height: 100%;
+    display: none; 
 }
->>>>>>> 1dc14714d6d766f7b125c64df30cc413d2ec47a7
