@@ -55,31 +55,42 @@ def hello():
 @application.route("/list")
 def view_list():
     page = request.args.get("page", 0, type=int)
-    per_page = 6
-    per_row = 3
-    row_count = int(per_page/per_row)
-    start_idx = per_page*page
-    end_idx = per_page*(page+1)
-    data = DB.get_items()
+    category = request.args.get("category", "all")
+    per_page=6 # item count to display per page
+    per_row=3# item count to display per row
+    row_count=int(per_page/per_row)
+    start_idx=per_page*page
+    end_idx=per_page*(page+1)
+    if category=="all":
+        data = DB.get_items() #read the table
+    else:
+        data = DB.get_items_bycategory(category)
+    data = dict(sorted(data.items(), key=lambda x: x[0], reverse=False))
     item_counts = len(data)
-    data = dict(list(data.items())[start_idx:end_idx])
+    
+    if item_counts<=per_page:
+        data = dict(list(data.items())[:item_counts])
+    else:
+        data = dict(list(data.items())[start_idx:end_idx])
+        
     tot_count = len(data)
-    for i in range(row_count):
-        if (i == row_count-1) and (tot_count % per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())
-            [i*per_row:])
-        else:
-            locals()['data_{}'.format(i)] = dict(list(data.items())
-            [i*per_row:(i+1)*per_row])
+    
+    for i in range(row_count):#last row
+        if (i == row_count-1) and (tot_count%per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
+        else: 
+            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
+            
     return render_template(
-        "상품전체조회.html",
+        "상품전체조회.html", 
         datas=data.items(),
         row1=locals()['data_0'].items(),
         row2=locals()['data_1'].items(),
         limit=per_page,
         page=page,
-        page_count=int((item_counts/per_page)+1),
-        total=item_counts)
+        page_count=int(math.ceil(item_counts/per_page)),
+        total=item_counts,
+        category=category)
 
 
 @application.route('/main_page')
