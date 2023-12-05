@@ -87,6 +87,21 @@ class DBhandler:
     def get_reviews(self):
         reviews = self.db.child("review").get().val()
         return reviews
+    
+    def get_review_ratings(self):
+        reviews = self.db.child("review").get()
+        total_rating = 0
+        individual_ratings = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+        for res in reviews.each():
+            value = res.val()
+            rating = int(value.get("rate", 0))
+
+            total_rating += rating
+            individual_ratings[rating] += 1
+
+        return total_rating, individual_ratings
+
 
 
     def get_review_byname(self, name):
@@ -120,3 +135,34 @@ class DBhandler:
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
 
+    def add_to_cart(self, user_id, product_id, quantity=1):
+        cart_ref = self.db.child("carts").child(user_id)
+        product_ref = cart_ref.child(product_id)
+
+        existing_quantity = product_ref.get().val()
+        if existing_quantity:
+            quantity += existing_quantity
+
+        cart_ref.update({product_id: quantity})
+
+    def get_cart(self, user_id):
+        cart_ref = self.db.child("carts").child(user_id)
+        cart = cart_ref.get().val()
+        return cart if cart else {}
+
+    def get_items_bycategory(self, cate):
+        items = self.db.child("item").get()
+        target_value=[]
+        target_key=[]
+        for res in items.each():
+            value = res.val()
+            key_value = res.key()
+            
+            if value['category'] == cate:
+                target_value.append(value)
+                target_key.append(key_value)
+        print("######target_value",target_value)
+        new_dict={}
+        for k,v in zip(target_key,target_value):
+            new_dict[k]=v
+        return new_dict
