@@ -135,3 +135,17 @@ class DBhandler:
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
 
+    def add_to_cart(self, user_id, product_id, quantity=1):
+        cart_ref = self.db.child("carts").child(user_id)
+        product_ref = cart_ref.child(product_id)
+
+        existing_quantity = product_ref.get().val()
+        if existing_quantity:
+            quantity += existing_quantity
+
+        cart_ref.update({product_id: quantity})
+
+    def get_cart(self, user_id):
+        cart_ref = self.db.child("carts").child(user_id)
+        cart = cart_ref.get().val()
+        return cart if cart else {}
