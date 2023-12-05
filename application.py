@@ -135,6 +135,7 @@ def view_review():
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())
             [i*per_row:(i+1)*per_row])
+    total_rating, individual_ratings = DB.get_review_ratings()
     return render_template(
         "리뷰_전체조회.html",
         datas=data.items(),
@@ -143,7 +144,9 @@ def view_review():
         limit=per_page,
         page=page,
         page_count=int((item_counts/per_page)+1), 
-        total=item_counts)
+        total=item_counts,
+        total_rating=total_rating,
+        individual_ratings=individual_ratings)
 
 
 # @application.route("/reviews")

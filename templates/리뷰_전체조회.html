@@ -22,11 +22,17 @@
     <label class="rateAll">
         <pre>     총 평점 
         </pre>
-        <progress class="all" value="4.4" max="5"></progress>
+        {% if total > 0 %}
+            {% set average_rating = total_rating / total %}
+            <progress class="all" value="{{ average_rating }}" max="5"></progress>
+        {% else %}
+            <progress class="all" value="0" max="5"></progress>
+            <p class="rate">(0/5)</p>
+        {% endif %}
     </label>
-    <p class="rate">(4.4/5)</p>
+    <p class="rate">({{ "%.2f"|format(average_rating) }}/5)</p>
     <label class="rateInd">
-        <span>5점</span>
+        <!--span>5점</span>
         <progress class="ind" value="282" max="337"></progress>
         <sub>(282)</sub>
         <span><br>4점</span>
@@ -40,7 +46,15 @@
         <sub>(3)</sub>
         <span><br>1점</span>
         <progress class="ind" value="17" max="337"></progress>
-        <sub>(17)</sub>
+        <sub>(17)</sub-->
+        {% for rating, count in individual_ratings.items() %}
+            <div class="rating-item">
+                <span>{{ rating }}점</span>
+                <progress class="ind" value="{{ count }}" max="{{ total }}"></progress>
+                <sub>({{ count }})</sub>
+            </div>
+        {% endfor %}
+        
     </label>
 </div>
 <!-- 사진/동영상 리뷰 없애는 쪽으로 생각 중

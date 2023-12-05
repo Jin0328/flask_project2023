@@ -87,6 +87,21 @@ class DBhandler:
     def get_reviews(self):
         reviews = self.db.child("review").get().val()
         return reviews
+    
+    def get_review_ratings(self):
+        reviews = self.db.child("review").get()
+        total_rating = 0
+        individual_ratings = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+        for res in reviews.each():
+            value = res.val()
+            rating = int(value.get("rate", 0))
+
+            total_rating += rating
+            individual_ratings[rating] += 1
+
+        return total_rating, individual_ratings
+
 
 
     def get_review_byname(self, name):
