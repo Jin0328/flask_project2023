@@ -113,7 +113,7 @@
     </div>
     <div class="image-container">
         <!--img src="{{ data.img_path }}" alt="Product Image"-->
-        <img src="../../{{ data.img_path }}" width="140" height="200" alt="Product Image">
+        <!--img src="../../{{ data.img_path }}" width="140" height="200" alt="Product Image"-->
     
     
     </div>
@@ -168,16 +168,21 @@
 <div class="v92_45"></div>
 </div>
 <div class="navbar">
-        <ul>
-			{% if session['id'] %}
-			<li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-			<li><a href="/login">로그인</a></li>
-			{% endif %}
-            <li><a href="/">판매상품</a></li>
-            <li><a href="/certification">이화인증</a></li>
-            <li><a href="/my_page">마이페이지</a></li>
-            <li><a href="#">장바구니</a></li>
-        </ul>
+    <ul>
+        <li class="logo">
+            <a href="/main_page">
+                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+            </a>
+        </li>
+        <li><a href="/certification">이화인 인증</a></li>
+        <li><a href="/list">판매상품</a></li>
+        <li><a href="">장바구니</a></li>
+        <li><a href="/my_page">마이페이지</a></li>
+        {% if session['id'] %}
+        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+        <li><a href="/login">로그인</a></li>
+        {% endif %}
+    </ul>
     </div>
 </div>
 </body>
