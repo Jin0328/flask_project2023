@@ -87,7 +87,7 @@ class DBhandler:
     def get_reviews(self):
         reviews = self.db.child("review").get().val()
         return reviews
-    
+
     def get_review_ratings(self):
         reviews = self.db.child("review").get()
         total_rating = 0
@@ -107,7 +107,6 @@ class DBhandler:
     def get_review_byname(self, name):
         reviews = self.db.child("review").get()
         target_value = ""
-        print("###########", name)
         for res in reviews.each():
             key_value = res.key()
             if key_value == name:
@@ -116,7 +115,7 @@ class DBhandler:
 
     def get_heart_byname(self, uid, name):
         hearts = self.db.child("heart").child(uid).get()
-        target_value=""
+        target_value = ""
         if hearts.val() == None:
             return target_value
 
