@@ -24,7 +24,6 @@ class DBhandler:
     def user_duplicate_check(self, id_string):
         users = self.db.child("user").get()
 
-        print("users###", users.val())
         if str(users.val()) == "None": # first registration
             return True
         else:
@@ -54,7 +53,6 @@ class DBhandler:
             "img_path": img_path
         }
         self.db.child("item").child(name).set(item_info)
-        print(data, img_path)
         return True
 
     def get_items(self):
@@ -64,7 +62,6 @@ class DBhandler:
     def get_item_byname(self, name):
         items = self.db.child("item").get()
         target_value = ""
-        print("###########", name)
         for res in items.each():
             key_value = res.key()
             if key_value == name:
@@ -171,7 +168,6 @@ class DBhandler:
             if value['category'] == cate:
                 target_value.append(value)
                 target_key.append(key_value)
-        print("######target_value",target_value)
         new_dict={}
         for k,v in zip(target_key,target_value):
             new_dict[k]=v

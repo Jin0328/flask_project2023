@@ -23,7 +23,7 @@ def login_user():
     pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest() 
     if DB.find_user(id_,pw_hash):
         session['id']=id_
-        return redirect(url_for('view_list'))
+        return redirect(url_for('hello'))
     else:
         flash("Wrong ID or PW!")
         return redirect(url_for('login'))
@@ -78,10 +78,10 @@ def view_list():
     for i in range(row_count):#last row
         if (i == row_count-1) and (tot_count % per_row != 0):
             locals()['data_{}'.format(i)] = dict(list(data.items())
-                                                 [i*per_row:])
+                                                [i*per_row:])
         else:
             locals()['data_{}'.format(i)] = dict(list(data.items())
-                                                 [i*per_row:(i+1)*per_row])
+                                                [i*per_row:(i+1)*per_row])
     return render_template(
         "상품전체조회.html",
         datas=data.items(),
@@ -188,12 +188,6 @@ def view_review():
         individual_ratings=individual_ratings)
 
 
-# @application.route("/reviews")
-# def get_reviews():
-#     reviews = DB.get_reviews()
-#     return render_template("reviews.html", reviews=reviews)
-
-
 @application.route("/reg_review_init/<name>/", methods=['GET', 'POST'])
 def reg_review_init(name):
     return render_template("리뷰작성.html", name=name)
@@ -220,19 +214,15 @@ def reg_review():
     return render_template("리뷰_전체조회.html", total=item_counts, page_count=page_count)
 
 
-
-@application.route("/submit_item", methods=['POST'])
-def reg_item_submit():
-    name = request.args.get("name")
-    seller = request.args.get("seller")
-    addr = request.args.get("addr")
-    money = request.args.get("money")
-    category = request.args.get("category")
-    status = request.args.get("status")
-    intro = request.args.get("intro")
-    
-    # print(name, seller, addr, category, status, description)
-    #return render_template("reg_item.html")
+# @application.route("/submit_item", methods=['POST'])
+# def reg_item_submit():
+#     name = request.args.get("name")
+#     seller = request.args.get("seller")
+#     addr = request.args.get("addr")
+#     money = request.args.get("money")
+#     category = request.args.get("category")
+#     status = request.args.get("status")
+#     intro = request.args.get("intro")
 
 
 @application.route("/submit_item_post", methods=['POST'])
@@ -269,15 +259,6 @@ def reg_item_submit_post():
     )
 
 
-"""
-@application.route("/view_detail/<user_id>_<name>/")
-def view_item_detail(name):
-    print("###name:", name)
-    data = DB.get_item_byname(str(name))
-    print("####data:", data)
-    return render_template("상품세부.html", name=name, data=data)
-"""
-
 @application.route("/buy_now/<name>", methods=['GET'])
 def buy_now(name):
     user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
@@ -310,15 +291,9 @@ def signup_page():
 def my_page():
     return render_template('마이페이지(마켓찜 보기).html')
 
-# @application.route('/my_page2')
-# def my_page2():
-#     return render_template('마이페이지(상품찜 보기).html')
-
 @application.route("/view_detail/<name>/")
 def view_item_detail(name):
-    print("###name:", name)
     data = DB.get_item_byname(str(name))
-    print("####data:", data)
     return render_template("상품세부.html", name=name, data=data)
 
 
