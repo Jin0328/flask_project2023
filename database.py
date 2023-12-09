@@ -127,9 +127,11 @@ class DBhandler:
         return target_value
 
 
-    def update_heart(self, user_id, isHeart, item):
+    def update_heart(self, user_id, isHeart, item, money, img_path):
         heart_info ={
-            "interested": isHeart
+            "interested": isHeart,
+            "money" : money,
+            "img_path": img_path
         }
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
@@ -174,3 +176,8 @@ class DBhandler:
         for k,v in zip(target_key,target_value):
             new_dict[k]=v
         return new_dict
+
+    def get_liked_items(self, user_id):
+        liked_items = self.db.child("heart").child(user_id).get().val()
+        return liked_items
+

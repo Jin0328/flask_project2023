@@ -129,8 +129,38 @@
                 <a class="product_like" href=""><b>상품찜</b><hr /><img src="/static/images/like_img.png" /></a>
                 <br />
             </div>
+            <div class="product_list"> 
 
-            <div class="product_list">
+                {% if liked_items %}
+    {% for key, value in liked_items.items() %}
+        <a class="like_product" onclick="redirectToDetail('{{ key }}');">
+            <div class="product_img" style="background-image: url('{{ value.img_path }}');"></div>
+            <script>
+                function redirectToDetail(key) {
+                    location.href = '/view_detail/' + key + '/';
+                }
+            </script>
+            <div class="product_name"><b>{{ key }}</b></div>
+            <div class="product_price">{{ value.money }}원</div>
+            <!--div class="product_category">
+                <ul>
+                    <li><span class="purchase_amount">{{ value.category }}</span></li>
+                    <li><span class="like_number">{{ value.status }}</span></li>
+                </ul>
+            </div-->
+            <div class="store">
+                <span class="store_img"> </span>
+                <span class="store_name">{{ value.seller }}</span> <!-- Fix here -->
+            </div>
+        </a>
+    {% endfor %}
+{% else %}
+    <p>좋아하는 항목이 없습니다.</p>
+{% endif %}
+
+    
+            </div>
+            <!--div class="product_list">
                 <a class="like_product" href="">
                     <div class="product_img"></div>
                     <div class="product_name"><b>이화 곰돌이 키링</b></div>
@@ -252,9 +282,11 @@
                         <span class="store_name">송충이 상점</span>
                     </div>
                 </a>
-            </div>
+            </div-->
         </section>
     </main>
     <footer>By 오소와 오소플은 처음이지?</footer>
 </body>
 </html>
+
+

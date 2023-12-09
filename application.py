@@ -289,8 +289,19 @@ def buy_now(name):
         flash("로그인이 필요합니다")
         return redirect(url_for('login'))
 
+@application.route("/get_liked", methods=['GET'])
+def get_liked():
+    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
+    if user_id:
+        liked_items = DB.get_liked_items(user_id)
+        filtered_items = {item: info for item, info in liked_items.items() if info.get('interested') == 'Y'}
+        return render_template('마이페이지(상품찜 보기).html', liked_items=filtered_items)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
 
-
+    
 @application.route('/signup_page')
 def signup_page():
     return render_template('회원가입.html')
@@ -299,9 +310,9 @@ def signup_page():
 def my_page():
     return render_template('마이페이지(마켓찜 보기).html')
 
-@application.route('/my_page2')
-def my_page2():
-    return render_template('마이페이지(상품찜 보기).html')
+# @application.route('/my_page2')
+# def my_page2():
+#     return render_template('마이페이지(상품찜 보기).html')
 
 @application.route("/view_detail/<name>/")
 def view_item_detail(name):
@@ -324,12 +335,18 @@ def show_heart(name):
 
 @application.route('/like/<name>/', methods=['POST'])
 def like(name):
-    my_heart = DB.update_heart(session['id'],'Y',name)
+    item_info = DB.get_item_byname(name)
+    money = item_info.get('money', '0')  # 가격
+    img_path = item_info.get('img_path', '/default/image.jpg')
+    my_heart = DB.update_heart(session['id'],'Y',name, money, img_path)
     return jsonify({'msg': '좋아요 완료!'})
 
 @application.route('/unlike/<name>/', methods=['POST'])
 def unlike(name):
-    my_heart = DB.update_heart(session['id'],'N',name)
+    item_info = DB.get_item_byname(name)
+    money = item_info.get('money', '0')  # 가격
+    img_path = item_info.get('img_path', '/default/image.jpg')
+    my_heart = DB.update_heart(session['id'],'N',name, money, img_path)
     return jsonify({'msg': '안좋아요 완료!'})
 
 @application.route("/add_to_cart/<name>", methods=['GET'])
