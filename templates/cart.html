@@ -7,7 +7,8 @@
 <body>
     <h1>장바구니</h1>
     <ul>
-        {% for product_id, quantity in cart_items.items() %}
+        {% for product_id, quantity_dict in cart_items.items() %}
+        {% set quantity = quantity_dict['quantity'] %}
             <li>{{ product_id }} - 수량: {{ quantity }}</li>
         {% endfor %}
     </ul>

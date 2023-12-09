@@ -133,16 +133,25 @@ class DBhandler:
         }
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
+    
+    def update_certification(self, user_id, check):
+        certification_info ={
+            "certification": check
+        }
+        self.db.child("ewha").child(user_id).set(certification_info)
+        return True
 
-    def add_to_cart(self, user_id, product_id, quantity=1):
+    def add_to_cart(self, user_id, item, quantity=1):
         cart_ref = self.db.child("carts").child(user_id)
-        product_ref = cart_ref.child(product_id)
+        product_ref = cart_ref.child(item)
 
         existing_quantity = product_ref.get().val()
         if existing_quantity:
-            quantity += existing_quantity
+            existing_quantity = existing_quantity.get('quantity', 0)
+            quantity += int(existing_quantity)
 
-        cart_ref.update({product_id: quantity})
+        self.db.child("carts").child(user_id).child(item).update({"quantity": quantity})
+        return True
 
     def get_cart(self, user_id):
         cart_ref = self.db.child("carts").child(user_id)
@@ -156,7 +165,7 @@ class DBhandler:
         for res in items.each():
             value = res.val()
             key_value = res.key()
-            
+
             if value['category'] == cate:
                 target_value.append(value)
                 target_key.append(key_value)

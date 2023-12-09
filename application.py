@@ -25,7 +25,7 @@ def login_user():
         return redirect(url_for('view_list'))
     else:
         flash("Wrong ID or PW!")
-        return render_template("로그인.html")
+        return redirect(url_for('login'))
 
 @application.route("/signup")
 def signup():
@@ -56,33 +56,33 @@ def hello():
 def view_list():
     page = request.args.get("page", 0, type=int)
     category = request.args.get("category", "all")
-    per_page=6 # item count to display per page
-    per_row=3# item count to display per row
-    row_count=int(per_page/per_row)
-    start_idx=per_page*page
-    end_idx=per_page*(page+1)
+    per_page = 6
+    per_row = 3
+    row_count = int(per_page/per_row)
+    start_idx = per_page*page
+    end_idx = per_page*(page+1)
     if category=="all":
-        data = DB.get_items() #read the table
+        data = DB.get_items()
     else:
         data = DB.get_items_bycategory(category)
     data = dict(sorted(data.items(), key=lambda x: x[0], reverse=False))
     item_counts = len(data)
-    
+
     if item_counts<=per_page:
         data = dict(list(data.items())[:item_counts])
     else:
         data = dict(list(data.items())[start_idx:end_idx])
-        
     tot_count = len(data)
-    
+
     for i in range(row_count):#last row
-        if (i == row_count-1) and (tot_count%per_row != 0):
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:])
-        else: 
-            locals()['data_{}'.format(i)] = dict(list(data.items())[i*per_row:(i+1)*per_row])
-            
+        if (i == row_count-1) and (tot_count % per_row != 0):
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:])
+        else:
+            locals()['data_{}'.format(i)] = dict(list(data.items())
+                                                 [i*per_row:(i+1)*per_row])
     return render_template(
-        "상품전체조회.html", 
+        "상품전체조회.html",
         datas=data.items(),
         row1=locals()['data_0'].items(),
         row2=locals()['data_1'].items(),
@@ -106,7 +106,14 @@ def review_page():
     return render_template('리뷰작성.html')
 
 
-@application.route("/certification")
+correct_answers = {
+    "소방 안전교육 3번째 영상의 제목은 무엇인가요?": "3.소화기 점검 및 사용법",
+    "안전교육 2번째 영상의 제목은 무엇인가요?": "직장 안전점검 체크리스트",
+    "장애인식개선 교육을 실시하는 주체는 어디인가요?": "장애학생지원센터",
+    "장애인식개선 교육의 시작일은? 5월 00일(숫자만)": "22"
+}
+
+@application.route("/certification", methods=['GET', 'POST'])
 def view_certification():
     questions = [
         "소방 안전교육 3번째 영상의 제목은 무엇인가요?",
@@ -114,7 +121,27 @@ def view_certification():
         "장애인식개선 교육을 실시하는 주체는 어디인가요?",
         "장애인식개선 교육의 시작일은? 5월 00일(숫자만)"
     ]
+
+    if request.method == 'POST':
+        # 사용자가 제출한 답변과 현재 랜덤으로 선택된 질문에 대한 정답을 가져옵니다.
+        current_question = session.pop('current_question', None)
+        print(current_question)
+        user_answer = request.form.get('answer')
+        print(user_answer)
+        correct_answer = correct_answers.get(current_question)
+        print(correct_answer)
+        # 정답과 사용자가 입력한 답변을 비교합니다.
+        if user_answer == correct_answer:
+            # 정답이 맞으면 인증 성공 페이지로 리다이렉트합니다.
+            my_check = DB.update_certification(session['id'],'Y')
+            flash("인증 완료!")
+            return redirect(url_for('my_page'))
+        else:
+            flash("정답이 틀렸습니다. 다시 시도해주세요.")
+            return redirect(url_for('view_certification'))
+    
     random_question = random.choice(questions)
+    session['current_question'] = random_question
     return render_template("이화인인증.html", random_question=random_question)
 
 
@@ -241,6 +268,28 @@ def reg_item_submit_post():
     )
 
 
+"""
+@application.route("/view_detail/<user_id>_<name>/")
+def view_item_detail(name):
+    print("###name:", name)
+    data = DB.get_item_byname(str(name))
+    print("####data:", data)
+    return render_template("상품세부.html", name=name, data=data)
+"""
+
+@application.route("/buy_now/<name>", methods=['GET'])
+def buy_now(name):
+    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
+    if user_id:
+        data = DB.get_item_byname(str(name))
+        return render_template("상품주문.html", name=name, data=data)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+
+
+
 @application.route('/signup_page')
 def signup_page():
     return render_template('회원가입.html')
@@ -284,13 +333,14 @@ def unlike(name):
 
 @application.route("/add_to_cart/<name>", methods=['GET'])
 def add_to_cart(name):
-    user_id = session.get('id')  # 현재 로그인한 사용자의 ID 가져오기
+    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
     if user_id:
         DB.add_to_cart(user_id, name)  # 사용자의 장바구니에 상품 추가
         return redirect(url_for('view_cart'))
     else:
         # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
-        return render_template("login.html", message="로그인이 필요합니다.")
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
 
 
 
@@ -304,7 +354,8 @@ def view_cart():
         return render_template("cart.html", cart_items=cart_items)
     else:
         # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
-        return render_template("login.html", message="로그인이 필요합니다.")
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
 
 
 
