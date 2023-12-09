@@ -4,6 +4,39 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="상품주문.css">
     <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
+    
+    <script>
+    // 수량이 변경될 때마다 호출되는 함수
+    function updateTotal() {
+        // 선택된 수량 가져오기
+        var selectedQuantity = document.getElementById("수량").value;
+
+        // 각 수량에 대응하는 금액을 설정 (예시로 각 수량에 1000원씩 설정)
+        var priceMapping = {
+            "1": {{data.money}},
+            "2": {{data.money}}*2,
+            "3": {{data.money}}*4,
+            "4": {{data.money}}*3,
+            "5": {{data.money}}*5,
+            "6": {{data.money}}*6
+        };
+
+        // 수량에 대응하는 금액 가져오기
+        var price = priceMapping[selectedQuantity];
+
+        // 결과를 화면에 출력
+        document.getElementById("금액").innerText = price;
+    }
+
+    // 페이지 로딩 시 초기화
+    document.addEventListener("DOMContentLoaded", function () {
+        updateTotal(); // 초기화할 때도 한 번 호출
+        // 수량이 변경될 때마다 updateTotal 함수 호출
+        document.getElementById("수량").addEventListener("change", updateTotal);
+    });
+</script>
+    
+    
 </head>
 <nav class="navbar">
     <div class="navbar_logo">
@@ -31,7 +64,7 @@
     <table class="table">
         <tr>
             <th>상품이름</th>
-            <td>#상품이름 받아서 출력</td>
+            <td>{{name}}</td>
         </tr>
         <tr>
             <th>수량</th>
@@ -48,7 +81,7 @@
         </tr>
         <tr>
             <th>금액 합계</th>
-            <td>#수량*금액으로 총 금액 출력</td>
+            <td id="금액"></td>
         </tr>
     </table>
 </div>
