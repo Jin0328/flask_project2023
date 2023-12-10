@@ -25,19 +25,15 @@
 	line-height:px;
 }
 .button1 {
-    width: 1440px;
-    height: 820px;
-    position: absolute;
-    left: 0px;
-    top: 204px;
+    width: 100%;
+    height: 100vh; /* 화면 높이 전체를 채우도록 설정 */
+    position: relative;
+    overflow: hidden; /* 내부 요소가 넘칠 경우를 대비해 추가 */
 }
 
 .ewhaimage {
-    width: 1440px;
-    height: 820px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
+    width: 100%;
+    height: 100%;
     background-image: url(/static/images/____4_1.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -45,11 +41,13 @@
 
 .button1_1 {
     background-color: rgba(217, 217, 217, 0.5);
-    width: 433px;
+    width: 100%;
+    max-width: 433px;
     height: 64px;
     position: absolute;
-    left: 530px;
-    top: 727px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -73,34 +71,12 @@
     text-decoration: none;
 }
 
-.button1_2.button:hover {
+.button1_2.button:hover 
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-        .pagination {
-            list-style: none;
-            display: flex;
-            padding: 0;
-            width:160px;
-   			height:20px;
-            position:absolute;
-            left:693px;
-            top:1811px;
-        }
 
-        .pagination-item {
-            width: 200px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
 
-        .pagination-item.active {
-            background-color: #4caf50;
-        }
 
 .e86_291 { 
 	width:1780px;
