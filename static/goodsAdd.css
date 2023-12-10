@@ -44,6 +44,15 @@ position:relative;
     position: relative; top: -35px; left: 142px;
     font-size: 120%;
 }
+
+.input-style{
+    width: 500px; height: 30px;
+    text-align: center;
+    border: none;
+    position: relative; top: -35px; left: 142px;
+    font-size: 60px;
+}
+
 hr{
     width: 500px;
     position: relative; left: 120px; top: -35px;

@@ -43,6 +43,35 @@
             <a class="add_goods" href="/reg_items">
                 <img src="/static/images/add_goods.png" />
             </a>
+            
+            {% if seller_item %}
+    {% for key, value in seller_item.items() %}
+        <a class="my_goods_list" onclick="redirectToDetail('{{ key }}');">
+            <div class="my_goods_img" style="background-image: url('../../{{ value.img_path }}'); background-size: cover;"></div>
+            <script>
+                function redirectToDetail(key) {
+                    location.href = '/view_detail/' + key + '/';
+                }
+            </script>
+            <div class="my_goods_name"><b>{{ key }}</b></div>
+            <div class="my_goods_price">{{ value.money }}원</div>
+            <!--div class="product_category">
+                <ul>
+                    <li><span class="purchase_amount">{{ value.category }}</span></li>
+                    <li><span class="like_number">{{ value.status }}</span></li>
+                </ul>
+            </div-->
+                <div class="my_goods_category">
+                    <ul>
+                        <li><span>{{ value.category }}</span></li>
+                    </ul>
+                </div>
+        </a>
+    {% endfor %}
+{% else %}
+    <p>등록한 상품이 없습니다.</p>
+{% endif %}
+<!-- 
             <a class="my_goods_list" href="">
                 <div class="my_goods_img"></div>
                 <div class="my_goods_name"><b>이화 곰돌이 키링</b></div>
@@ -119,7 +148,7 @@
                         <li><span>액세서리</span></li>
                     </ul>
                 </div>
-            </a>
+            </a> -->
         </section>
         <hr class="divide">
 
@@ -134,7 +163,7 @@
                 {% if liked_items %}
     {% for key, value in liked_items.items() %}
         <a class="like_product" onclick="redirectToDetail('{{ key }}');">
-            <div class="product_img" style="background-image: url('{{ value.img_path }}');"></div>
+            <div class="product_img" style="background-image: url('../../{{ value.img_path }}');"></div>
             <script>
                 function redirectToDetail(key) {
                     location.href = '/view_detail/' + key + '/';
