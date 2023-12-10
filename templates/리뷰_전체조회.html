@@ -4,18 +4,9 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ url_for('static', filename='reviewAll.css') }}">
 </head>
-<div class="navbar">
-    <ul>
-        {% if session['id'] %}
-        <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-        <li><a href="/login">로그인</a></li>
-        {% endif %}
-        <li><a href="/list">판매상품</a></li>
-        <li><a href="/certification">이화인증</a></li>
-        <li><a href="/my_page">마이페이지</a></li>
-        <li><a href="/cart">장바구니</a></li>
-    </ul>
-</div>
+{% extends "index.html" %} 
+{% block section %} 
+    
 <div class="divRate">
     <p class="title"> 상품 리뷰</p>
     <a href="상품상세"><img class="topImg" src="/static/images/img.jpg"></a>
@@ -201,4 +192,5 @@
     </div>
 </div>-->
 
+{% endblock section %}
 </html>
