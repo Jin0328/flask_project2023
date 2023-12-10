@@ -177,3 +177,19 @@ class DBhandler:
         liked_items = self.db.child("heart").child(user_id).get().val()
         return liked_items
 
+    
+    def get_items_byseller(self, sel):
+        items = self.db.child("item").get()
+        target_value=[]
+        target_key=[]
+        for res in items.each():
+            value = res.val()
+            key_value = res.key()
+
+            if value['seller'] == sel:
+                target_value.append(value)
+                target_key.append(key_value)
+        new_dict={}
+        for k,v in zip(target_key,target_value):
+            new_dict[k]=v
+        return new_dict
