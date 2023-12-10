@@ -8,7 +8,8 @@
 
 <title>Document</title>
 </head>
-
+{% extends "index.html" %} 
+{% block section %} 
 <body>
 <div class="v3_870">
 	<img class="v38_275_t" src="../../{{data.img_path}}", width=627, height=600>
@@ -32,19 +33,7 @@
 <div class="name"></div>
 <span class="판매자">판매자 | 송충이 상점</span>
 <div class="v68_76"></div></div>
-
-<div class="navbar">
-        <ul>
-			{% if session['id'] %}
-			<li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-			<li><a href="/login">로그인</a></li>
-			{% endif %}
-            <li><a href="/">판매상품</a></li>
-            <li><a href="/certification">이화인증</a></li>
-            <li><a href="/reg_items">마이페이지</a></li>
-            <li><a href="/cart">장바구니</a></li>
-        </ul>
-    </div>
-    </div>
+</div>
 </body>
+{% endblock section %}
 </html>
