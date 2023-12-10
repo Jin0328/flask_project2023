@@ -77,30 +77,6 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-        .pagination {
-            list-style: none;
-            display: flex;
-            padding: 0;
-            width:160px;
-   			height:20px;
-            position:absolute;
-            left:693px;
-            top:1811px;
-        }
-
-        .pagination-item {
-            width: 200px;
-            height: 25px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .pagination-item.active {
-            background-color: #4caf50;
-        }
 
 .e86_291 { 
 	width:1780px;
