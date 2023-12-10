@@ -3,19 +3,17 @@
 <head>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='goodsAdd.css') }}">
-    <style>
-      
-    </style>
 </head>
-    
 {% extends "index.html" %} 
-{% block section %} 
+<body>
+    <main>
+    {% block section %} 
     <form action="/submit_item_post" method="post" enctype="multipart/form-data" id="myform">
     <div class="divImg">
             <div class="button">
                 <label class="imgLabel" for="file">
                     <div class="formImg">
-                        <p style="text-align: center; float: center;">상품 사진은 최대 5장 업로드 가능합니다</p>
+                        <p style="text-align: center; float: center;">상품 사진은 1장 업로드 가능합니다</p>
                         <img id="previewImg" src="#" alt="상품 미리보기 이미지" style="max-width: 100%; max-height: 100%;">
                     </div>
                 </label>
@@ -42,14 +40,14 @@
             </select>
             <hr><br>
             <label style="position: relative; left: 25px;">금액</label>
-            <input type="number" id="money" name="money" style="position: relative; left: 90px;"
+            <input type="number" id="money" name="money" style="position: relative; left: 95px; top:-20px"
             placeholder="판매 금액 입력" min="0" maxlength="7" required><p class="won">원</p>
-            <hr><br>
+            <hr style="position:relative; top:-20px; left:125px;"><br>
             <label style="position: relative; left: 25px;">지역</label>
             <input type="text" name="addr" id="addr" 
             placeholder="(사는 도시 입력)" maxlength="20" size="20" required>
             <hr><br>
-            <label style="position: relative; left: -5px;">상품 상태</label>
+            <label style="position: relative; left: -5px; top:-30px">상품 상태</label>
             <fieldset>
                 <input type="radio" name="reviewStar" value="5" id="rate1">
                 <label for="rate1" class="star">★</label>
@@ -85,5 +83,9 @@
             }
         }
     </script>
-{% endblock section %}
+    {% endblock section %}
+    </main>
+    <footer>By 오소와 오소플은 처음이지?</footer>
+</body>
+
 </html>
