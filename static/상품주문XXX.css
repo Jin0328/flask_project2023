@@ -1,0 +1,110 @@
+.navbar {
+    display:flex; /*가로정렬*/
+    align-items:center; /*수직 중앙 정렬*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left:250px;
+    width: 100%; 
+    height:50px;
+    background-color: #333;
+    overflow: hidden;
+    z-index: 6;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center; 
+}
+
+.navbar li {
+    display: inline-block; 
+    margin: 0 25px; 
+}
+
+.navbar a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+.navbar_logo a{
+display:flex;
+}
+
+.navbar_logo i{
+font-size:30px;
+color:white;
+padding-top:5px;
+}
+.navbar_menu{
+display: flex; 
+list-style:none; /*리스트의 dot제거*/
+padding-left: 50px;
+}  
+
+.상품정보{
+    /*background-color: aqua;*/
+    position:  relative; top: 100px;
+}
+h2{
+    position: relative; left: 73px;
+}
+
+.table{
+    width: 90%;
+    border: 1px solid;
+    border-collapse: collapse;
+    border-color: rgba(90, 90, 90, 1);
+    margin: auto;
+}
+
+.table tr,td,th{
+    border: 1px solid;
+    padding: 20px;
+    border-color: rgba(90, 90, 90, 1);
+}
+.table th{
+    font-size: 110%;
+    width: 20%;
+}
+#수량{
+    width: 240px; height: 30px;
+    text-align: center;
+    font-size: 100%;
+}
+
+.배송정보{
+    position: relative; top: 150px;
+}
+.배송정보 input{
+    border: none;
+    width: 100%; height: 30px;
+    font-size: 15px;
+}
+.입금확인{
+    position: relative; top: 200px;
+}
+.입금확인 input{
+    border: none;
+    width: 100%; height: 30px;
+    font-size: 15px;
+}
+
+#submit{
+    width: 236px; height: 60px;
+    position: relative; top: 300px; left: 600px;
+    font-size: 120%;
+    border: none;
+    background-color: #00462a;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 500px;
+}
