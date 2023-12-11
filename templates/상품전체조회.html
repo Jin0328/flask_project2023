@@ -4,34 +4,97 @@
 
 <style>
 
-    .button-container {
-        display: flex;
-        gap: 20px;
-        justify-content:flex-end;
-        margin-top: 100px;
-    }
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Light gray background color */
+        }
 
-    .customButton {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 150px;
-        height: 50px;
-        background-color: #4CAF50;
-        color: #ffffff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-family: 'Roboto', sans-serif;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: background-color 0.3s;
-    }
+        header {
+            background-color: #4CAF50; /* Dark green header background color */
+            color: #ffffff; /* White text color */
+            padding: 20px;
+            text-align: center;
+        }
 
-    .customButton:hover {
-        background-color: #45a049;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: flex-end;
+            margin-top: 20px; /* Adjusted margin-top */
+        }
+
+        .customButton {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 50px;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .customButton:hover {
+            background-color: #45a049;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px; /* Adjusted margin-top */
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .page-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjusted margin-top */
+        }
+
+        .page-nation {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .page-nation a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .page-nation a:hover {
+            background-color: #ddd;
+        }
+
+        p {
+            margin-bottom: 20px; /* Adjusted margin-bottom */
+        }
 
 
 
