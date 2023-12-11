@@ -15,7 +15,7 @@
 	color:rgba(0, 0, 0, 1);
 	width:338px;
 	height:52px;
-	position:absolute;
+	position:relative;
 	left:551px;
 	top:125px;
 	font-family:Anonymous Pro;
@@ -23,11 +23,14 @@
 	font-size:25px;
 	letter-spacing:0;
 	line-height:px;
+    width: 100%;
+    height: 100vh;
 }
 .button1 {
-    width: 100%;
+    width: 100vh;
     height: 100vh; /* 화면 높이 전체를 채우도록 설정 */
     position: relative;
+    object-fit: cover;
     overflow: hidden; /* 내부 요소가 넘칠 경우를 대비해 추가 */
 }
 
@@ -71,7 +74,7 @@
     text-decoration: none;
 }
 
-.button1_2.button:hover 
+.button1_2.button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
