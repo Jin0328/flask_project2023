@@ -120,69 +120,7 @@ body {
 .name {
   color: #fff;
 }
-.이미지바 {
-  width: 117px;
-  height: 18px;
-  background: url("../images/v5_1563.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 816px;
-  left: 340px;
-  overflow: hidden;
-}
-.v5_1564 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 26px;
-  border-radius: 50%;
-}
-.v5_1565 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border-radius: 50%;
-}
-.v5_1566 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 99px;
-  border-radius: 50%;
-}
-.v5_1567 {
-  width: 18px;
-  height: 18px;
-  background: rgba(89,89,89,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 76px;
-  border-radius: 50%;
-}
-.v5_1568 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 51px;
-  border-radius: 50%;
-}
+
 .v5_1569 {
   width: 524px;
   height: 81px;
