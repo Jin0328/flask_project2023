@@ -28,10 +28,10 @@
 }
 .button1 {
     width: 100vh;
-    height: 100vh; /* 화면 높이 전체를 채우도록 설정 */
+    height: 100vh; 
     position: relative;
     object-fit: cover;
-    overflow: hidden; /* 내부 요소가 넘칠 경우를 대비해 추가 */
+    overflow: hidden; 
 }
 
 .ewhaimage {
@@ -77,7 +77,6 @@
 .button1_2.button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-
 
 
 
