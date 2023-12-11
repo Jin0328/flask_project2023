@@ -117,72 +117,7 @@ body {
   opacity: 1;
   text-align: left;
 }
-.name {
-  color: #fff;
-}
-.이미지바 {
-  width: 117px;
-  height: 18px;
-  background: url("../images/v5_1563.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 816px;
-  left: 340px;
-  overflow: hidden;
-}
-.v5_1564 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 26px;
-  border-radius: 50%;
-}
-.v5_1565 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-  border-radius: 50%;
-}
-.v5_1566 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 99px;
-  border-radius: 50%;
-}
-.v5_1567 {
-  width: 18px;
-  height: 18px;
-  background: rgba(89,89,89,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 76px;
-  border-radius: 50%;
-}
-.v5_1568 {
-  width: 18px;
-  height: 18px;
-  background: rgba(217,217,217,1);
-  opacity: 1;
-  position: absolute;
-  top: 0px;
-  left: 51px;
-  border-radius: 50%;
-}
+
 .v5_1569 {
   width: 524px;
   height: 81px;
@@ -230,9 +165,7 @@ body {
         background-color: #00aa00;
     }
 
-.name {
-  color: #fff;
-}
+
 .v5_1575 {
   width: 480px;
   height: 250px;
@@ -354,11 +287,12 @@ body {
   opacity: 1;
   text-align: left;
 }
+/*
   .REVIEWButton {
     display: inline-block;
     width: 100px;
     height: 50px;
-    background-color: #ffffff; /* 흰색 배경색 */
+    background-color: #ffffff;
     color: rgba(0, 0, 0, 1);
     font-family: 'Roboto', sans-serif;
     font-weight: Medium;
@@ -371,7 +305,7 @@ body {
     top: 966px;
     left: 700px;
   }
-
+*/
 
 .name {
   color: #fff;
@@ -416,50 +350,9 @@ body {
   top: 0px;
   left: 0px;
 }
-.v7_1671 {
-  width: 217px;
-  height: 27px;
-  background: url("../images/v7_1671.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 595px;
-  left: 982px;
-  overflow: hidden;
-}
-.v7_1672 {
-  width: 206px;
-  height: 35px;
-  background: rgba(12,166,104,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
-.v38_276 {
-  width: 35px;
-  height: 35px;
-  background: url("../images/v38_276.png");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  opacity: 1;
-  position: absolute;
-  top: 497px;
-  left: 1149px;
-  overflow: hidden;
-}
-.v38_277 {
-  width: 35px;
-  height: 35px;
-  background: rgba(0,70,42,1);
-  opacity: 1;
-  position: relative;
-  top: 0px;
-  left: 0px;
-}
+
+
+
 .v92_43 {
   width: 100%;
   height: 70px;

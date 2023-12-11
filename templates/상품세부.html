@@ -5,6 +5,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Sansation+Light&display=swap" rel="stylesheet" />
 <!--link href="main.css" rel="stylesheet" /-->
+    
 <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 
@@ -112,7 +113,6 @@
                 5점
                 {% endif %}
             </span>
-        <div class="name"></div>
     </div>
     <div class="image-container">
         <!--img src="{{ data.img_path }}" alt="Product Image"-->
@@ -121,14 +121,8 @@
     
     </div>
     
-    <div class="이미지바">
-        <div class="v5_1564"></div>
-        <div class="v5_1565"></div>
-        <div class="v5_1566"></div>
-        <div class="v5_1567"></div>
-        <div class="v5_1568"></div>
-    </div>
     <div class="button-container">
+        <a href="/reg_review_init/{{name}}" class="customButton">Write Review</a>
         <a href="/buy_now/{{name}}" class="customButton" name="buynow">Buy Now</a>
         <a href="/add_to_cart/{{name}}" class="customButton" name="addtocart">Add to Cart</a>
     </div>
@@ -153,19 +147,11 @@
 	</button>
 </span>
 
-<a href="/view_review" class="REVIEWButton">REVIEW</a>
-<button onclick="location.href='/reg_review_init/{{name}}/';">리뷰등록</button>
-
 <div class="name"></div>
 
 
-<div class="v7_1671">
+    <a href="/view_review" class="REVIEWButton">REVIEW</a>
 
-<div class="v7_1672"></div>
-</div>
-<div class="v38_276">
-<div class="v38_277"></div>
-</div>
 <div class="v92_43">
 <div class="v92_44">
 <div class="v92_45"></div>
