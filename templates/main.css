@@ -287,11 +287,12 @@ body {
   opacity: 1;
   text-align: left;
 }
+/*
   .REVIEWButton {
     display: inline-block;
     width: 100px;
     height: 50px;
-    background-color: #ffffff; /* 흰색 배경색 */
+    background-color: #ffffff;
     color: rgba(0, 0, 0, 1);
     font-family: 'Roboto', sans-serif;
     font-weight: Medium;
@@ -304,7 +305,7 @@ body {
     top: 966px;
     left: 700px;
   }
-
+*/
 
 .name {
   color: #fff;
