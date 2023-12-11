@@ -46,20 +46,26 @@ height:1000px;
 .navbar a:hover {
     background-color: #555;
 }
-h1{
+.header{
+position:absolute;
+left:45%;
+display:inline-block;
 margin:100px 0px 40px 0px;
-text-align:center;
 font-size:36px;
 font-weight:bold;
+
 }
 #hilighting{
 position:absolute;
-left:680px;
-top:135px;
-width:150px;
+left:-7%;
+top:87%;
+width:140px;
 height:10px;
 background-color:rgb(4,120,30,0.4);
 border-radius:8px;
+}
+div.explain{
+padding-top:200px;
 }
 p{
 text-align:center;
