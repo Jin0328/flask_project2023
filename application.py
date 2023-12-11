@@ -338,7 +338,8 @@ def get_liked(user_id):
     liked_items = DB.get_liked_items(user_id)
     sel_item = DB.get_items_byseller(user_id)
     filtered_items = {item: info for item, info in liked_items.items() if info.get('interested') == 'Y'}
-    return render_template('마이페이지(상품찜 보기).html', seller_item=sel_item, liked_items=filtered_items)
+    data= DB.get_profile_by_seller(user_id)
+    return render_template('마이페이지(상품찜 보기).html', seller_item=sel_item, liked_items=filtered_items, data=data)
 
 
 @application.route('/signup_page')

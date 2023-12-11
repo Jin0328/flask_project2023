@@ -31,11 +31,11 @@
     <main>
         <section class="store_profile">
             <div class="background">
-                <a href="/edit_page"><img src="/static/images/edit_img.png" /></a>
-                <img class="profile_img" src="/static/images/profile_img.png" />
-                <div class="store_name"><b>송충이 상점</b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
+                <a href="/reg_profile"><img src="/static/images/edit_img.png" /></a>
+                <img class="profile_img" src="/{{ data.img_path }}" />
+                <div class="store_name"> <b>{{ data.prname }}</b> <img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
                 <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
-                <div class="bio">이번 대동제 24번 부스에서도 만나요</div>
+                <div class="bio">{{ data.printro }}</div>
             </div>
         </section>
 
