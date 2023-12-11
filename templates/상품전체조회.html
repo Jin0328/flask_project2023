@@ -68,17 +68,29 @@ select:focus {
     border-color: #7f8c8d;
 }
 
-table {
-    width: 100%;
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
     margin-top: 20px;
-    border-collapse: collapse;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-td {
-    padding: 15px;
-    text-align: center;
-    border: 1px solid #bdc3c7;
+.card-item {
+    flex: 0 1 calc(33.33% - 20px);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.card-item:hover {
+    transform: scale(1.05);
+}
+
+.card-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #bdc3c7;
 }
 
 .page-wrap {
