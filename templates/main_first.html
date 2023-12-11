@@ -2,14 +2,6 @@
 <head>
     <title>main_first</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main_first.css') }}">
-
-    <script>
-        function changeColor(index) {
-            var items = document.querySelectorAll('.pagination-item');
-            items.forEach(item => item.classList.remove('active'));
-            items[index].classList.add('active');
-        }
-    </script>
 </head>
     
 {% extends "index.html" %}
