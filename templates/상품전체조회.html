@@ -8,11 +8,13 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light gray background color */
+            background-color: #f8f9fa; /* Light background color */
+            color: #495057; /* Default text color */
+            transition: background-color 0.3s, color 0.3s;
         }
 
         header {
-            background-color: #4CAF50; /* Dark green header background color */
+            background-color: #343a40; /* Dark header background color */
             color: #ffffff; /* White text color */
             padding: 20px;
             text-align: center;
@@ -27,7 +29,7 @@
             display: flex;
             gap: 20px;
             justify-content: flex-end;
-            margin-top: 20px; /* Adjusted margin-top */
+            margin-top: 20px;
         }
 
         .customButton {
@@ -36,8 +38,8 @@
             justify-content: center;
             width: 150px;
             height: 50px;
-            background-color: #4CAF50;
-            color: #ffffff;
+            background-color: #28a745; /* Green button color */
+            color: #ffffff; /* White text color */
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -48,29 +50,39 @@
         }
 
         .customButton:hover {
-            background-color: #45a049;
+            background-color: #218838; /* Darker green on hover */
         }
 
         select {
             padding: 10px;
             border-radius: 5px;
+            border: 1px solid #ced4da; /* Light gray border */
+            background-color: #ffffff; /* White background color */
+            color: #495057; /* Default text color */
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        select:hover,
+        select:focus {
+            border-color: #6c757d; /* Dark gray border on hover/focus */
         }
 
         table {
             width: 100%;
-            margin-top: 20px; /* Adjusted margin-top */
+            margin-top: 20px;
             border-collapse: collapse;
         }
 
         td {
             padding: 10px;
             text-align: center;
+            border: 1px solid #dee2e6; /* Light gray border */
         }
 
         .page-wrap {
             display: flex;
             justify-content: center;
-            margin-top: 20px; /* Adjusted margin-top */
+            margin-top: 20px;
         }
 
         .page-nation {
@@ -81,22 +93,20 @@
 
         .page-nation a {
             text-decoration: none;
-            color: black;
+            color: #495057; /* Default text color */
             padding: 8px 16px;
-            border: 1px solid #ccc;
+            border: 1px solid #ced4da;
             border-radius: 4px;
             transition: background-color 0.3s;
         }
 
         .page-nation a:hover {
-            background-color: #ddd;
+            background-color: #e9ecef; /* Light gray on hover */
         }
 
         p {
-            margin-bottom: 20px; /* Adjusted margin-bottom */
+            margin-bottom: 20px;
         }
-
-
 
 </style>
 
@@ -138,7 +148,7 @@
 <table>
     <tr>
     {% for key, value in row1 %}
-        <td>상품이름: {{key}}</td>
+        <td>{{key}}</td>
     {% endfor %}
     </tr>
     <tr>
@@ -149,7 +159,7 @@
     </tr>
     <tr>
     {% for key, value in row2 %}
-        <td>상품이름: {{key}}</td>
+        <td>{{key}}</td>
     {% endfor %}
     </tr>
     <tr>
