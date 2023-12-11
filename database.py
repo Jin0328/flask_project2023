@@ -82,18 +82,9 @@ class DBhandler:
         return profile
     
     def get_profile_by_seller(self, prseller):
-        # prseller에 해당하는 프로필 정보 가져오기
         profile_info = self.db.child("profile").child(prseller).get().val()
+        print("Profile Info: %s", profile_info)
         return profile_info
-    
-    def get_profile_seller(self, prname):
-        prname = self.db.child("prname").get()
-        target_value = ""
-        for res in  prname.each():
-            key_value = res.key()
-            if key_value == prname:
-                target_value = res.val()
-        return target_value
 
 
     def reg_review(self, data, img_path):
