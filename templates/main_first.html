@@ -2,14 +2,6 @@
 <head>
     <title>main_first</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main_first.css') }}">
-
-    <script>
-        function changeColor(index) {
-            var items = document.querySelectorAll('.pagination-item');
-            items.forEach(item => item.classList.remove('active'));
-            items[index].classList.add('active');
-        }
-    </script>
 </head>
     
 {% extends "index.html" %}
@@ -23,7 +15,7 @@
         <a href="/list" class="button1_2 button">Shop Now</a>
     </div>
 </div>
-    
+  <!--  
     <div class="e86_291">
 			<div class=product1>
 				<div  class="image1"></div>
@@ -53,7 +45,7 @@
 
 					</div>
 				</div>
-
+-->
 				
 				<span  class="p1">배지 상점 바로가기</span>
 				<div  class="배지이미지"></div>

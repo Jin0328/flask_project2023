@@ -5,40 +5,42 @@
     <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='badgeInfo.css') }}">
-
     <title>이화상점: 이화인인증</title>
     <script src="https://kit.fontawesome.com/09606a1ca2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-    <div class="navbar">
-    <ul>
-        <li class="logo">
-            <a href="/main_page">
-                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
-            </a>
-        </li>
-        <li><a href="/certification">이화인 인증</a></li>
-        <li><a href="/list">판매상품</a></li>
-        <li><a href="/cart">장바구니</a></li>
-        <li><a href="/my_page">마이페이지</a></li>
-        {% if session['id'] %}
-        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
-        <li><a href="/login">로그인</a></li>
-        {% endif %}
-    </ul>
-    </div>
+        <div class="navbar">
+            <ul>
+                <li class="logo">
+                    <a href="/main_page">
+                        <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+                    </a>
+                </li>
+                <li><a href="/certification">이화인 인증</a></li>
+                <li><a href="/list">판매상품</a></li>
+                <li><a href="/cart">장바구니</a></li>
+                <li><a href="/my_page">마이페이지</a></li>
+                {% if session['id'] %}
+                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+                <li><a href="/login">로그인</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </header>
     <main>
-        <h1>배지란?</h1>
-        <span id="hilighting"></span>
-        <p>다양한 배지들을 획득해보세요!</p>
-        <p>특정 조건을 만족하면 배지를 획득할 수 있습니다.</p>
-        <p>획득한 배지는 마이페이지에서 확인 가능하며 작성한 판매글에도 표시됩니다.</p>
-        <br>
-        <p>배지가 붙은 스토어의 상품만 확인하고 싶으신가요?</p>
-        <p>첫화면의 ‘배지 스토어 바로가기’ 를 확인해보세요.</p>
-        <p>또는 전체 상품조회 화면의 ‘인증마켓’ 필터를 사용해보세요.</p>
+        <div class="header">
+              배지란?<span id="hilighting"></span> 
+        </div>
+        <div class="explain">
+            <p>다양한 배지들을 획득해보세요!</p>
+            <p>특정 조건을 만족하면 배지를 획득할 수 있습니다.</p>
+            <p>획득한 배지는 마이페이지에서 확인 가능하며 작성한 판매글에도 표시됩니다.</p>
+            <br>
+            <p>배지가 붙은 스토어의 상품만 확인하고 싶으신가요?</p>
+            <p>첫화면의 ‘배지 스토어 바로가기’ 를 확인해보세요.</p>
+            <p>또는 전체 상품조회 화면의 ‘인증마켓’ 필터를 사용해보세요.</p>
+        </div>
 
         <img id="popularStoreImg" src="/static/images/badge1.png" />
         <img id="reviewRateImg" src="/static/images/badge2.png" />

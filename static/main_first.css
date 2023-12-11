@@ -1,6 +1,4 @@
-/* .83_680 { 
-	overflow:hidden;
-} */
+
 .e83_680 { 
 	background-color:rgba(255, 255, 255, 1);
 	width:1440px;
@@ -8,14 +6,12 @@
 	position:absolute;
 	overflow:hidden;
 }
-/* .83_696 { 
-	border:1px solid rgba(0, 0, 0, 1);
-} */
+
 .e84_14 { 
 	color:rgba(0, 0, 0, 1);
 	width:338px;
 	height:52px;
-	position:absolute;
+	position:relative;
 	left:551px;
 	top:125px;
 	font-family:Anonymous Pro;
@@ -23,17 +19,20 @@
 	font-size:25px;
 	letter-spacing:0;
 	line-height:px;
+    width: 100%;
+    height: 100vh;
 }
 .button1 {
     width: 100%;
-    height: 100vh; /* 화면 높이 전체를 채우도록 설정 */
+    height: 100vh; 
     position: relative;
-    overflow: hidden; /* 내부 요소가 넘칠 경우를 대비해 추가 */
+    object-fit: cover;
+    overflow: hidden; 
 }
 
 .ewhaimage {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url(/static/images/____4_1.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -71,13 +70,12 @@
     text-decoration: none;
 }
 
-.button1_2.button:hover 
+.button1_2.button:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
 
-
-
+/*
 .e86_291 { 
 	width:1780px;
 	height:442px;
@@ -305,7 +303,7 @@
 	letter-spacing:0;
 	line-height:px;
 }
-
+*/
 
 
 
