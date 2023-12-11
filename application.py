@@ -164,6 +164,53 @@ def reg_item():
         return redirect(url_for('login'))
         
 
+@application.route("/reg_profile")
+def reg_profile():
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+
+    if user_id:
+        return render_template("프로필편집.html", user_id=user_id)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+    
+@application.route("/submit_profile_post", methods=['POST'])
+def reg_profile_submit_post():
+
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+
+    if user_id:
+        image_file = request.files["file"]
+        image_file.save("static/images/{}".format(image_file.filename))
+
+        prname = request.form.get("prname")
+        prseller = user_id
+        printro = request.form.get("printro")
+
+        # 데이터베이스에 데이터 삽입 로직 수행
+        if DB.insert_profile(prseller, {
+        'prname': prname,
+        'printro': printro
+        }, "static/images/{}".format(image_file.filename)):
+            print("데이터:", request.form)
+            print("이미지 경로:", "static/images/{}".format(image_file.filename))
+            return render_template(
+                "마켓찜.html",
+                prseller=prseller,
+                prname=prname,
+                printro=printro,
+                img_path="static/images/{}".format(image_file.filename)
+            )
+        else:
+            flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
+
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+
+
 @application.route("/view_review")
 def view_review():
     page = request.args.get("page", 0, type=int)
@@ -308,10 +355,12 @@ def my_page():
         flash("로그인이 필요합니다")
         return redirect(url_for('login'))
 
+
 @application.route('/my_page/<user_id>')
 def my_page_user(user_id):
     sel_item = DB.get_items_byseller(user_id)
-    return render_template('마이페이지(마켓찜 보기).html', seller_item=sel_item, user_id=user_id)
+    data= DB.get_profile_by_seller(user_id)
+    return render_template('마이페이지(마켓찜 보기).html', seller_item=sel_item, user_id=user_id, data=data)
 
 
 

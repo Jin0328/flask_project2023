@@ -68,6 +68,34 @@ class DBhandler:
                 target_value = res.val()
         return target_value
 
+    def insert_profile(self, prseller, data, img_path):
+            profile_info = {
+                "prname": data['prname'],
+                "printro": data['printro'],
+                "img_path": img_path
+            }
+            self.db.child("profile").child(prseller).set(profile_info)
+            return True
+    
+    def get_profile(self):
+        profile = self.db.child("profile").get().val()
+        return profile
+    
+    def get_profile_by_seller(self, prseller):
+        # prseller에 해당하는 프로필 정보 가져오기
+        profile_info = self.db.child("profile").child(prseller).get().val()
+        return profile_info
+    
+    def get_profile_seller(self, prname):
+        prname = self.db.child("prname").get()
+        target_value = ""
+        for res in  prname.each():
+            key_value = res.key()
+            if key_value == prname:
+                target_value = res.val()
+        return target_value
+
+
     def reg_review(self, data, img_path):
         review_info = {
             "title" : data['reviewTitle'],
@@ -132,7 +160,7 @@ class DBhandler:
         }
         self.db.child("heart").child(user_id).child(item).set(heart_info)
         return True
-    
+
     def update_certification(self, user_id, check):
         certification_info ={
             "certification": check
@@ -177,7 +205,7 @@ class DBhandler:
         liked_items = self.db.child("heart").child(user_id).get().val()
         return liked_items
 
-    
+
     def get_items_byseller(self, sel):
         items = self.db.child("item").get()
         target_value=[]
