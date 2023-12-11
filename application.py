@@ -64,6 +64,7 @@ def view_list():
     end_idx = per_page*(page+1)
     if category=="all":
         data = DB.get_items()
+        print(data)
     else:
         data = DB.get_items_bycategory(category)
     data = dict(sorted(data.items(), key=lambda x: x[0], reverse=False))
@@ -153,7 +154,62 @@ def badge():
 
 @application.route("/reg_items")
 def reg_item():
-    return render_template("상품등록.html")
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+
+    if user_id:
+        return render_template("상품등록.html", user_id=user_id)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+        
+
+@application.route("/reg_profile")
+def reg_profile():
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+
+    if user_id:
+        return render_template("프로필편집.html", user_id=user_id)
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+    
+@application.route("/submit_profile_post", methods=['POST'])
+def reg_profile_submit_post():
+
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+
+    if user_id:
+        image_file = request.files["file"]
+        image_file.save("static/images/{}".format(image_file.filename))
+
+        prname = request.form.get("prname")
+        prseller = user_id
+        printro = request.form.get("printro")
+
+        # 데이터베이스에 데이터 삽입 로직 수행
+        if DB.insert_profile(prseller, {
+        'prname': prname,
+        'printro': printro
+        }, "static/images/{}".format(image_file.filename)):
+            print("데이터:", request.form)
+            print("이미지 경로:", "static/images/{}".format(image_file.filename))
+            return render_template(
+                "마켓찜.html",
+                prseller=prseller,
+                prname=prname,
+                printro=printro,
+                img_path="static/images/{}".format(image_file.filename)
+            )
+        else:
+            flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
+
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+
 
 @application.route("/view_review")
 def view_review():
@@ -227,41 +283,48 @@ def reg_review():
 
 @application.route("/submit_item_post", methods=['POST'])
 def reg_item_submit_post():
-    
-    image_file=request.files["file"]
-    image_file.save("static/images/{}".format(image_file.filename))
 
-    name = request.form.get("name")
-    seller = request.form.get("seller")
-    addr = request.form.get("addr")
-    money = request.form.get("money")
-    category = request.form.get("category")
-    status = request.form.get("status")
-    intro = request.form.get("intro")
+    user_id = session.get('id')  # 로그인한 사용자의 ID
 
-    # 데이터베이스에 데이터 삽입 로직 수행
-    if DB.insert_item(name, {
-        'seller': seller,
-        'addr': addr,
-        'money': money,
-        'category': category,
-        'status': status,
-        'intro': intro
-    }, "static/images/{}".format(image_file.filename)):
-        print()
+    if user_id:
+        image_file = request.files["file"]
+        image_file.save("static/images/{}".format(image_file.filename))
+
+        name = request.form.get("name")
+        seller = user_id
+        addr = request.form.get("addr")
+        money = request.form.get("money")
+        category = request.form.get("category")
+        status = request.form.get("status")
+        intro = request.form.get("intro")
+
+        # 데이터베이스에 데이터 삽입 로직 수행
+        if DB.insert_item(name, {
+            'seller': seller,
+            'addr': addr,
+            'money': money,
+            'category': category,
+            'status': status,
+            'intro': intro
+        }, "static/images/{}".format(image_file.filename)):
+            print("성공")
+        else:
+            flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
+
+        return render_template(
+            "상품세부.html",
+            data=request.form,
+            img_path="static/images/{}".format(image_file.filename)
+        )
     else:
-        flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
-
-    return render_template(
-        "상품세부.html",
-        data=request.form,
-        img_path="static/images/{}".format(image_file.filename)
-    )
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
 
 
 @application.route("/buy_now/<name>", methods=['GET'])
 def buy_now(name):
-    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
+    user_id = session.get('id')  # 로그인한 사용자의 ID
     if user_id:
         data = DB.get_item_byname(str(name))
         return render_template("상품주문.html", name=name, data=data)
@@ -270,26 +333,49 @@ def buy_now(name):
         flash("로그인이 필요합니다")
         return redirect(url_for('login'))
 
-@application.route("/get_liked", methods=['GET'])
-def get_liked():
-    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
-    if user_id:
-        liked_items = DB.get_liked_items(user_id)
-        filtered_items = {item: info for item, info in liked_items.items() if info.get('interested') == 'Y'}
-        return render_template('마이페이지(상품찜 보기).html', liked_items=filtered_items)
-    else:
-        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
-        flash("로그인이 필요합니다")
-        return redirect(url_for('login'))
+@application.route("/get_liked/<user_id>", methods=['GET'])
+def get_liked(user_id):
+    liked_items = DB.get_liked_items(user_id)
+    sel_item = DB.get_items_byseller(user_id)
+    filtered_items = {item: info for item, info in liked_items.items() if info.get('interested') == 'Y'}
+    return render_template('마이페이지(상품찜 보기).html', seller_item=sel_item, liked_items=filtered_items)
 
-    
+
 @application.route('/signup_page')
 def signup_page():
     return render_template('회원가입.html')
 
 @application.route('/my_page')
 def my_page():
-    return render_template('마이페이지(마켓찜 보기).html')
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+    if user_id:
+        return redirect(url_for('my_page_user', user_id=user_id))
+    else:
+        # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+        flash("로그인이 필요합니다")
+        return redirect(url_for('login'))
+
+
+@application.route('/my_page/<user_id>')
+def my_page_user(user_id):
+    sel_item = DB.get_items_byseller(user_id)
+    data= DB.get_profile_by_seller(user_id)
+    return render_template('마이페이지(마켓찜 보기).html', seller_item=sel_item, user_id=user_id, data=data)
+
+
+
+# @application.route("/get_liked", methods=['GET'])
+# def get_liked():
+#     user_id = session.get('id')  # 로그인한 사용자의 ID
+#     if user_id:
+#         liked_items = DB.get_liked_items(user_id)
+#         filtered_items = {item: info for item, info in liked_items.items() if info.get('interested') == 'Y'}
+#         return render_template('마이페이지(상품찜 보기).html', liked_items=filtered_items)
+#     else:
+#         # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
+#         flash("로그인이 필요합니다")
+#         return redirect(url_for('login'))
+
 
 @application.route("/view_detail/<name>/")
 def view_item_detail(name):
@@ -326,7 +412,8 @@ def unlike(name):
 
 @application.route("/add_to_cart/<name>", methods=['GET'])
 def add_to_cart(name):
-    user_id = session['id']  # 현재 로그인한 사용자의 ID 가져오기
+    user_id = session.get('id')  # 로그인한 사용자의 ID
+    print(user_id)
     if user_id:
         DB.add_to_cart(user_id, name)  # 사용자의 장바구니에 상품 추가
         return redirect(url_for('view_cart'))
