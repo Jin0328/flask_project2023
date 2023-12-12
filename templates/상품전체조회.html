@@ -8,7 +8,7 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Light gray background color */
+            background-color: #ffffff; /* Light gray background color */
         }
 
         header {
@@ -18,6 +18,30 @@
             text-align: center;
         }
 
+            .REVIEWButton {
+            display: inline-block;
+            width: 150px; /* Increased button width */
+            height: 70px; /* Increased button height */
+            background-color: #6c757d; /* Gray background color */
+            color: #fff; /* White text color */
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold; /* Changed to bold */
+            font-size: 18px; /* Adjusted font size */
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            line-height: 70px; /* Centering text vertically */
+            transition: background-color 0.3s; /* Smooth transition for background color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .REVIEWButton:hover {
+            background-color: #495057; /* Darker Gray on Hover */
+        }
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -95,6 +119,24 @@
         p {
             margin-bottom: 20px; /* Adjusted margin-bottom */
         }
+          .REVIEWButton {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff; /* 흰색 배경색 */
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto', sans-serif;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 966px;
+    right: 700px;
+  }
+
 
 </style>
 
@@ -133,6 +175,7 @@
 <p>
     상품 리스트 -- 현재까지 {{total}}개 등록됨
 </p>
+    <a href="/view_review" class="REVIEWButton">REVIEW</a>
 <table>
     <tr>
     {% for key, value in row1 %}
@@ -172,6 +215,7 @@
 {% endif %}
 {% endblock section %}
     
+<button class="REVIEWButton" onclick="location.href='/view_review';">전체 리뷰 보기</button>
 
 
 </html>

@@ -65,6 +65,24 @@ progress.all {
     height: 30px;
 }
 
+  .REVIEWButton {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff; /* 흰색 배경색 */
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto', sans-serif;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 966px;
+    right: 700px;
+  }
+
 ::-webkit-progress-bar {
     background-color: rgba(217, 217, 217, 1);
 }
