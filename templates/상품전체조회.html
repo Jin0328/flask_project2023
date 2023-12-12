@@ -95,6 +95,24 @@
         p {
             margin-bottom: 20px; /* Adjusted margin-bottom */
         }
+          .REVIEWButton {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff; /* 흰색 배경색 */
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Roboto', sans-serif;
+    font-weight: Medium;
+    font-size: 30px;
+    opacity: 1;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 966px;
+    right: 700px;
+  }
+
 
 </style>
 
@@ -133,6 +151,7 @@
 <p>
     상품 리스트 -- 현재까지 {{total}}개 등록됨
 </p>
+    <a href="/view_review" class="REVIEWButton">REVIEW</a>
 <table>
     <tr>
     {% for key, value in row1 %}
