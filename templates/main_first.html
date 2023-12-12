@@ -47,8 +47,32 @@
 				</div>
 -->
 				
-				<span  class="p1">배지 상점 바로가기</span>
-				<div  class="배지이미지"></div>
+    
+    <!--
+				<span class="p1">배지 상점 바로가기</span>
+           
+                {% if all_profiles %}
+                    {% for profile in all_profiles %}
+                        <div class="like_store">
+                            <div class="store_img">
+                                <img src="{{ profile['img_path'] }}" alt="프로필 이미지">
+                            </div>
+                            <div class="store_name">
+                                <b>{{ profile['prname'] }}</b>
+                            </div>
+                            <div class="store_bio">
+                                {{ profile['printro'] }}
+                            </div>
+                            
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No profiles available</p>
+                {% endif %}
+
+
+              -->
+    
 			</div>
     
 {% endblock section %}
