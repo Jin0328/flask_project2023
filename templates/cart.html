@@ -25,17 +25,17 @@
             border-radius: 0 0 8px 8px;
         }
 
-        ul {
+        .cart ul {
             list-style: none;
             padding: 0;
         }
 
-        li {
+        .cart li {
             border-bottom: 1px solid #ddd;
             padding: 15px;
         }
 
-        li:last-child {
+        .cart li:last-child {
             border-bottom: none;
         }
 
@@ -54,7 +54,7 @@
 </header>
 
 <section>
-    <ul>
+    <ul class="cart">
         {% for product_id, quantity_dict in cart_items.items() %}
         {% set quantity = quantity_dict['quantity'] %}
         <li>{{ product_id }} - <span class="quantity">수량: {{ quantity }}</span></li>
