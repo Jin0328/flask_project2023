@@ -29,20 +29,23 @@
     </div>
     </header>
     <main>
-        <!-- 마이페이지(마켓찜 보기).html 일부분 -->
         <section class="store_profile">
             <div class="background">
-                <a href="/edit_page"><img src="/static/images/edit_img.png" /></a>
-                <img class="profile_img" src="{{ data.img_path }}" />
-                <div class="store_name"><b>{{ prname }}</b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
-                <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
-                <div class="bio">{{ data.printro }}</div>
+                <a href="/reg_profile"><img src="/static/images/edit_img.png" /></a>
+                {%if data%}
+                    <img class="profile_img" src="/{{ data.img_path }}" />
+                    <div class="store_name"> <b>{{ data.prname }}</b> <img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
+                    <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
+                    <div class="bio">{{ data.printro }}</div>
+                {%else%}
+                    <img class="profile_img" src="/static/images/profile_img.png" />
+                    <div class="store_name"><b>송충이 상점</b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
+                    <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
+                    <div class="bio">상점에 대한 설명을 적어보세요</div>
+                {%endif%}
             </div>
         </section>
-        
-        
 
-        
 
         <section class="goodsList">
             <a class="add_goods" href="/reg_items">
