@@ -8,25 +8,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f2f2f2; /* Light Gray Background */
+            background-color: #ffffff; 
         }
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            background-color: #343a40; /* Dark Gray Header */
-            color: #fff;
-            border-radius: 8px 8px 0 0;
-        }
 
         h1 {
             margin: 0;
@@ -34,7 +18,11 @@
         }
 
         section {
-            margin-top: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 0 0 8px 8px;
         }
 
         ul {
@@ -56,26 +44,25 @@
             font-weight: bold;
         }
 
-        /* Add more styling as needed */
     </style>
 </head>
-{% extends "index.html" %} 
-{% block section %} 
+{% extends "index.html" %}
+    
+{% block section %}
 <body>
 
-    <div class="container">
-        <header>
-            <h1>장바구니</h1>
-        </header>
-        <section>
-            <ul>
-                {% for product_id, quantity_dict in cart_items.items() %}
-                {% set quantity = quantity_dict['quantity'] %}
-                    <li>{{ product_id }} - <span class="quantity">수량: {{ quantity }}</span></li>
-                {% endfor %}
-            </ul>
-        </section>
-    </div>
+<header>
+</header>
+
+<section>
+    <ul>
+        {% for product_id, quantity_dict in cart_items.items() %}
+        {% set quantity = quantity_dict['quantity'] %}
+        <li>{{ product_id }} - <span class="quantity">수량: {{ quantity }}</span></li>
+        {% endfor %}
+    </ul>
+</section>
+
 </body>
 {% endblock section %}
 </html>
