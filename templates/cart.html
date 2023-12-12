@@ -13,8 +13,7 @@
 
 
         h1 {
-            margin: 0;
-            font-size: 24px;
+            position:relative; top:50px; left:-250px;
         }
 
         section {
@@ -50,10 +49,16 @@
 {% block section %}
 <body>
 
-<header>
-</header>
+<h1>{{session['id']}}님 장바구니</h1>
 
 <section>
+<table>
+    <tr>
+        <td>상품명</td>
+        <td>개수</td>
+    </tr>
+</table>
+    
     <ul class="cart">
         {% for product_id, quantity_dict in cart_items.items() %}
         {% set quantity = quantity_dict['quantity'] %}
