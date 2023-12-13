@@ -428,7 +428,7 @@ def view_cart():
     if user_id:
         cart_items = DB.get_cart(user_id)  # 사용자의 장바구니 정보 가져오기
         # 장바구니 화면에 cart_items 전달하여 렌더링
-        return render_template("cart.html", cart_items=cart_items)
+        return render_template("cart.html", cart_items=cart_items, user_id=user_id)
     else:
         # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
         flash("로그인이 필요합니다")

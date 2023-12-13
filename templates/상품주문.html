@@ -133,3 +133,19 @@
 </div>
 <input type="submit" id="submit" value="구매 확정">
 </form>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Existing code for updating total and handling quantity change
+
+        // Handle form submission
+        document.getElementById("submit").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            // Display a confirmation message (you can customize this message)
+            alert("구매가 완료되었습니다!");
+
+            // Redirect to the home page (you can change the URL accordingly)
+            window.location.href = "/main_page";
+        });
+    });
+</script>
