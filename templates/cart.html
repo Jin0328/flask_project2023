@@ -1,49 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cart.css') }}">
     <title>장바구니</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff; 
-        }
 
-
-        h1 {
-            position:relative; top:50px; left:-250px;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 0 0 8px 8px;
-        }
-
-        .cart ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .cart li {
-            border-bottom: 1px solid #ddd;
-            padding: 15px;
-        }
-
-        .cart li:last-child {
-            border-bottom: none;
-        }
-
-        .quantity {
-            color: #28a745; 
-            font-weight: bold;
-        }
-
-    </style>
 </head>
 {% extends "index.html" %}
 {% block section %}
@@ -52,19 +13,25 @@
 <h1>{{session['id']}}님 장바구니</h1>
 
 <section>
-<table>
-    <tr>
-        <td>상품명</td>
-        <td>개수</td>
+<table >
+    <tr class="top">
+        <th>상품명</th>
+        <th>수량</th>
+        <th>구매</th>
     </tr>
+    {% for product_id, quantity_dict in cart_items.items() %}
+    {% set quantity = quantity_dict['quantity'] %}
+    <tr>
+        <th>{{ product_id }}</th>
+        <td>{{ quantity }}</td>
+        <td>
+            <div class="button-container">
+                <a href="/buy_now/{{name}}" class="customButton" name="buynow">Buy Now</a>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
 </table>
-    
-    <ul class="cart">
-        {% for product_id, quantity_dict in cart_items.items() %}
-        {% set quantity = quantity_dict['quantity'] %}
-        <li>{{ product_id }} - <span class="quantity">수량: {{ quantity }}</span></li>
-        {% endfor %}
-    </ul>
 </section>
 
 </body>
