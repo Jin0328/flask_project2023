@@ -1,37 +1,3 @@
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    overflow: hidden;
-    z-index: 3;
-}
-
-.navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-.navbar li {
-    display: inline-block;
-    margin: 0 10px;
-}
-
-.navbar a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.navbar a:hover {
-    background-color: #555;
-}
-
 .divRate {
     position: relative;
     top: 70px;
@@ -46,27 +12,15 @@
     top: 10px;
 }
 
-.topImg {
-    float: left;
-    width: 300px;
-    position: relative;
-    left: 300px;
-    bottom: 40px;
-}
-.rating-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px; /* 각 등급 사이의 간격을 조절할 수 있습니다. */
-}
-
 .rateAll {
     position: relative;
     left: 400px;
     bottom: 20px;
     font-size: 23px;
 }
-
+progress {
+    -webkit-appearance: none;
+}
 progress.all {
     height: 30px;
 }
@@ -94,8 +48,8 @@ progress.ind {
 .rateInd {
     float: right;
     position: relative;
-    left: -100px;
-    bottom: 200px;
+    left: -200px;
+    bottom: 250px;
 }
 
 .rateInd span {
@@ -119,31 +73,19 @@ progress.ind {
     top: 10px;
 }
 
-.divMedia img {
-    width: 195px;
-    height: 161px;
-    position: relative;
-    left: 90px;
-    top: 10px;
-    border-radius: 10px;
-}
-
-.divMedia a span {
-    float: right;
-    position: relative;
-    left: -100px;
-    bottom: 180px;
-}
-
-.divMedia a:link {
-    color: rgb(16, 112, 74);
-}
 
 .divAll {
     position: relative;
-    top: 150px;
+    top: 100px;
     height: 400px;
 }
+table {
+    position:relative; top:50px; left:50px;
+    border-collapse: separate;
+    border-spacing: 50px 50px;
+    text-align:center;
+}
+
 
 .divAll img {
     width: 200px;
@@ -239,33 +181,31 @@ p.ID {
     bottom: 60px;
 }
 
-.star-ratings {
-    color: #aaa9a9;
-    position: relative;
-    unicode-bidi: bidi-override;
-    width: max-content;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1.3px;
-    -webkit-text-stroke-color: #2b2a29;
-    top: 35px; /* left: 180px; 대신에 여기로 옮김 */
-}
-
-.star-ratings-fill {
-    color: #fff58c;
-    padding: 0;
-    position: absolute;
-    z-index: 6;
-    display: flex;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    -webkit-text-fill-color: rgba(12, 166, 105, 1);
-}
-
-.star-ratings-fill span {
-    font-size: 23px;
-}
-
 .divAll a:link {
     color: black;
 }
+        .page-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjusted margin-top */
+            position:relative; top:170px;
+        }
+
+        .page-nation {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .page-nation a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .page-nation a:hover {
+            background-color: #ddd;
+        }
