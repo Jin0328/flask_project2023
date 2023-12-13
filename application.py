@@ -251,7 +251,7 @@ def reg_review_init(name):
 @application.route("/reg_review", methods=['POST'])
 def reg_review():
     try:
-        image_file = request.files["chooseFile"]
+        image_file = request.files["file"]
         image_path = "static/images/{}".format(image_file.filename)
         print("이미지 경로:", image_path)
 
