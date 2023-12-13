@@ -39,7 +39,7 @@ def register_user():
     pw=request.form['pw']
     pw_hash = hashlib.sha256(pw.encode('utf-8')).hexdigest()
     if DB.insert_user(data,pw_hash):
-        return render_template("로그인.html")
+        return redirect(url_for('login'))
     else:
         flash("user id already exist!")
         return render_template("회원가입.html")
@@ -267,7 +267,7 @@ def reg_review():
     item_counts = len(data)
     per_page = 6
     page_count = int((item_counts / per_page) + 1)
-    return render_template("리뷰_전체조회.html", total=item_counts, page_count=page_count)
+    return redirect(url_for('view_review'))
 
 
 # @application.route("/submit_item", methods=['POST'])
@@ -311,11 +311,7 @@ def reg_item_submit_post():
         else:
             flash("상품 등록에 실패했습니다. 다시 시도해주세요.")
 
-        return render_template(
-            "상품세부.html",
-            data=request.form,
-            img_path="static/images/{}".format(image_file.filename)
-        )
+        return redirect(url_for('view_item_detail', name=name))
     else:
         # 로그인되지 않은 경우 로그인 페이지로 이동 또는 메시지 표시
         flash("로그인이 필요합니다")
