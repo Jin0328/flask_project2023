@@ -110,12 +110,13 @@
         
     </table>
     </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="page-wrap">
     <div class="page-nation">
         <ul>
             <li>
             {% for i in range(page_count)%}
-                <a href="{{url_for('view_list', page=i)}}" color="black">{{i}}</a>
+                <a href="{{url_for('view_review', page=i)}}" color="black">{{i}}</a>
             {% endfor %} </li>
         </ul>
     </div>
