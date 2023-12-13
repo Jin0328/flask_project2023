@@ -149,19 +149,11 @@ left:3%;
 border: 1px solid rgba(90, 90, 90, 0.5);
 width:92%;
 }
-.myLikeList div a.market_like{
-text-decoration:none;
-position:absolute;
-top:58%;
-left: 25%;
-font-size:30px;
-color:black;
-}
 .myLikeList div a.product_like{
 text-decoration:none;
 position:absolute;
 top:58%;
-right: 25%;
+left: 25%;
 font-size:30px;
 color:black;
 }
