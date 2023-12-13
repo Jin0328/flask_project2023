@@ -8,8 +8,7 @@
 {% block section %} 
     
 <div class="divRate">
-    <p class="title"> 상품 리뷰</p>
-    <a href="상품상세"><img class="topImg" src="/static/images/img.jpg"></a>
+    <p class="title">전체 상품 리뷰</p>
     <label class="rateAll">
         <pre>     총 평점 
         </pre>
@@ -22,67 +21,19 @@
         {% endif %}
     </label>
     <p class="rate">({{ "%.2f"|format(average_rating) }}/5)</p>
-    <a href="/view_review" class="REVIEWButton">REVIEW</a>
     <label class="rateInd">
-        <!--span>5점</span>
-        <progress class="ind" value="282" max="337"></progress>
-        <sub>(282)</sub>
-        <span><br>4점</span>
-        <progress class="ind" value="25" max="337"></progress>
-        <sub>(25)</sub>
-        <span><br>3점</span>
-        <progress class="ind" value="10" max="337"></progress>
-        <sub>(10)</sub>
-        <span><br>2점</span>
-        <progress class="ind" value="3" max="337"></progress>
-        <sub>(3)</sub>
-        <span><br>1점</span>
-        <progress class="ind" value="17" max="337"></progress>
-        <sub>(17)</sub-->
         {% for rating, count in individual_ratings.items() %}
             <div class="rating-item">
-                <span>{{ rating }}점</span>
+                <span><br>{{ rating }}점</span>
                 <progress class="ind" value="{{ count }}" max="{{ total }}"></progress>
                 <sub>({{ count }})</sub>
             </div>
         {% endfor %}
-        
     </label>
-</div>
-<!-- 사진/동영상 리뷰 없애는 쪽으로 생각 중
-<div class="divMedia">
-    <p class="subTitle">사진/동영상 리뷰(225)</p>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="전체리뷰">
-        <span>더보기></span>
-    </a>
-</div>
-
--->
-    
+</div> 
 {% if total > 0 %} 
 <div class="divAll">
     <p class="subTitle">전체 리뷰({{total}})</p>
-    <input type="button" value="추천순" id="sort" class="first">
-    <input type="button" value="최신순" id="sort" class="second">
-    <input type="button" value="평점 높은 순" id="sort" class="third">
     <table>
         <tr>
         {% for key, value in row1 %}
@@ -93,7 +44,7 @@
         </tr>
         <tr>
         {% for key, value in row1 %}
-            <td>{{value.title}}</td>
+            <th>리뷰 제목 : {{value.title}}</th>
         {% endfor %}
         </tr>
         <tr>
@@ -104,12 +55,12 @@
         </tr>
         <tr>
         {% for key, value in row2 %}
-            <td>{{value.title}}</td>
+            <th>리뷰 제목 : {{value.title}}</th>
         {% endfor %}
         </tr>
         
     </table>
-    </div>
+</div>
     <br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div class="page-wrap">
     <div class="page-nation">
@@ -124,75 +75,8 @@
 {% else %}
 <div class="divAll">
     <p class="subTitle">전체 리뷰(0)</p>
-    <input type="button" value="추천순" id="sort" class="first">
-    <input type="button" value="최신순" id="sort" class="second">
-    <input type="button" value="평점 높은 순" id="sort" class="third">
 </div>
 {% endif %}
-    <!--
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    <a href="각리뷰">
-        <img src="img.jpg">
-    </a>
-    
-
-
-    <div class="div1">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-    <div class="div2">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-    <div class="div2" style="position: relative; left: 360px;">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-    <div class="div2" style="position: relative; left: 485px;">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-    <div class="div2" style="position: relative; left: 610px;">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-    <div class="div2" style="position: relative; left: 735px;">
-        <p class="title">리뷰 제목</p>
-        <p class="option">상품명(옵션)</p>
-        <p class="date">2000.00.00</p>
-        <p class="ID">ewha1</p>
-    </div>
-</div>
-<div class="star-ratings">
-    <div class="star-ratings-fill">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-    </div>
-</div>-->
 
 {% endblock section %}
 </html>
