@@ -211,3 +211,8 @@ position:absolute;
 top:100%;
 font-size:16px;
 }
+p.likenone{
+    position:absolute;
+    top:70%;
+    left:15%;
+}
