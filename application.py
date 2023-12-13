@@ -247,7 +247,8 @@ def view_review():
 @application.route("/reg_review_init/<name>/", methods=['GET', 'POST'])
 def reg_review_init(name):
     return render_template("리뷰작성.html", name=name)
-                                                                        
+
+
 @application.route("/reg_review", methods=['POST'])
 def reg_review():
     try:
