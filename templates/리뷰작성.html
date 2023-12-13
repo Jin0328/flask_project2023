@@ -4,71 +4,41 @@
 <head>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ url_for('static', filename='review.css') }}">
-    <style>
-        #previewImg {
-            max-width: 100%;
-            max-height: 100%;
-            display: none;
-        }
-    </style>
 </head>
-
-<body>
-    <div class="navbar">
-        <ul>
-            {% if session['id'] %}
-            <li><a href="/logout"><b>{{session['id']}}님 반갑습니다!</b> logout</a></li> {% else %}
-            <li><a href="/login">로그인</a></li>
-            {% endif %}
-            <li><a href="/">판매상품</a></li>
-            <li><a href="/certification">이화인증</a></li>
-            <li><a href="/my_page">마이페이지</a></li>
-            <li><a href="/cart">장바구니</a></li>
-        </ul>
-    </div>
+{% extends "index.html" %} 
+{% block section %} 
+    <body>
     <form class="mb-3" name="myform" id="myform" method="post" action="/reg_review" enctype="multipart/form-data">
         <div class="divImg">
             <div class="button">
-                <label class="imgLabel" for="chooseFile" name="file">
+                <label class="imgLabel" for="file">
                     <div class="formImg">
-                        <p style="text-align: center; float: center;">상품 사진은 최대 10장 업로드 가능합니다</p>
+                        <p style="text-align: center; float: center;">상품 사진은 1장 업로드 가능합니다</p>
                         <img id="previewImg" src="#" alt="상품 미리보기 이미지" style="max-width: 100%; max-height: 100%;">
                     </div>
                 </label>
             </div>
-            <input type="file" id="chooseFile" accept="image/*" onchange="previewImage(this)" name="chooseFile" />
-            <input type="submit" id="submitReviewButton" value="리뷰 등록">
-            <svg width="450" height="590">
-                <circle cx="296" cy="520" r="9"></circle>
-                <circle cx="321" cy="520" r="9"></circle>
-                <circle cx="346" cy="520" r="9"></circle>
-                <circle class="select" cx="371" cy="520" r="9"></circle>
-                <circle cx="396" cy="520" r="9"></circle>
-            </svg>
+            <input type="file" id="file" accept="image/*" onchange="previewImage(this)" name="file" />
         </div>
+        
         <div class="divForm">
             <label>리뷰 제목</label>
-            <input type="text" id="reviewTitle" name="reviewTitle" style="position: relative; left: 45px;"
-                placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required class="inputText">
+            <input type="text" id="reviewTitle" name="reviewTitle" style="position: relative; left: 145px;"
+                placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required>
             <hr><br>
             <div class="divFormID">
                 <label style="position: relative; left: -20px;">구매자 아이디</label>
-                <input type="text" id="reviewID" name="reviewID" style="position: relative; left: 5px;"
-                    placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required class="inputText">
+                <input type="text" id="reviewID" name="reviewID" style="position: relative; left: 150px;"
+                    placeholder="(최대 20자 입력 가능합니다)" maxlength="20" size="20" required>
             </div>
             <hr><br>
-            <label style="position: relative; left: 15px;">상품</label>
-            <!--select id="reviewGoods" name="name" class="inputSelect">
-                <option value="상품1">상품1</option>
-                <option value="상품2">상품2</option>
-                <option value="상품3">상품3</option>
-            </select-->
+            <label style="position: relative; left: 15px;">상품명</label>
             <input type="text" name="name" id="name" value="{{ name }}" style="position: relative;" maxlength="20"
-                size="20" readonly class="inputText"><br><br>
+                size="20" readonly><br><br>
 
-            <hr><br>
+            <hr style="position:relative; top:-50px;"><br>
             <div class="divFormGender">
-                <label style="position: relative; left: 4px;">성별</label>
+                <label style="position: relative; left: 4px; top:-30px;">성별</label>
                 <select id="reviewGender" name = "reviewGender" class="inputSelect">
                     <option value="F">여성</option>
                     <option value="M">남성</option>
@@ -88,7 +58,7 @@
                 <option value="X">밝히고 싶지 않음</option>
             </select>
             <hr><br>
-            <label style="position: relative; left: -5px;">상품만족도</label>
+            <label style="position: relative; left: -5px; top:-30px">상품 만족도</label>
             <fieldset>
                 <input type="radio" name="reviewStar" value="5" id="rate1">
                 <label for="rate1" class="star">★</label>
@@ -126,5 +96,5 @@
         }
     </script>
 </body>
-
+{% endblock section %}
 </html>
