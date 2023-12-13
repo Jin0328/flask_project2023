@@ -184,3 +184,28 @@ p.ID {
 .divAll a:link {
     color: black;
 }
+        .page-wrap {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Adjusted margin-top */
+            position:relative; top:170px;
+        }
+
+        .page-nation {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .page-nation a {
+            text-decoration: none;
+            color: black;
+            padding: 8px 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .page-nation a:hover {
+            background-color: #ddd;
+        }
