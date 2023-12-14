@@ -11,22 +11,22 @@
 <body>
     <header>
         <div class="navbar">
-    <ul>
-        <li class="logo">
-            <a href="/main_page">
-                <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
-            </a>
-        </li>
-        <li><a href="/certification">이화인 인증</a></li>
-        <li><a href="/list">판매상품</a></li>
-        <li><a href="/cart">장바구니</a></li>
-        <li><a href="/my_page">마이페이지</a></li>
-        {% if session['id'] %}
-        <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
-        <li><a href="/login">로그인</a></li>
-        {% endif %}
-    </ul>
-    </div>
+            <ul>
+                <li class="logo">
+                    <a href="/main_page">
+                        <i class="fa-brands fa-pagelines"></i>&nbsp;&nbsp;&nbsp;EWHA STORE
+                    </a>
+                </li>
+                <li><a href="/certification">이화인 인증</a></li>
+                <li><a href="/list">판매상품</a></li>
+                <li><a href="/cart">장바구니</a></li>
+                <li><a href="/my_page">마이페이지</a></li>
+                {% if session['id'] %}
+                <li><a href="/logout"><b>{{session['id']}}님&nbsp;&nbsp;</b>로그아웃</a></li> {% else %}
+                <li><a href="/login">로그인</a></li>
+                {% endif %}
+            </ul>
+        </div>
     </header>
     <main>
         <form action="/submit_profile_post" method="post" enctype="multipart/form-data" id="myform">
@@ -36,44 +36,44 @@
                         <div class="button">
                             <label class="profile_img" for="file">
                                 <div class="formImg">
-                                    <p style="text-align: center; float: center;">상품 사진은 1장 업로드 가능합니다</p>
-                                    <img id="previewImg" src="#" alt="상품 미리보기 이미지" style="max-width: 100%; max-height: 100%;">
+                                    <p style="text-align: center; font-size: 14px;"><br><br><br><br><br><br>상품 사진은 1장 업로드 가능합니다</p>
+                                    <img id="previewImg" src="#" alt="" style="max-width: 100%; max-height: 100%;">
                                 </div>
                             </label>
                         </div>
                         <input type="file" id="file" accept="image/*" onchange="previewImage(this)" name="file" />
-                </div>
+                    </div>
                     <div class="store_name"><b><label style="position: relative; left: 15px;"></label>
                         <input type="text" id="prname" name="prname" 
                         placeholder="(상점명을 입력하세요)" maxlength="20" size="20" required></b><img class="badge" src="/static/images/ewhaCertificationMark.png" /></div>
                     <div class="like">마켓찜 15<img id="like_img" src="/static/images/like_img.png" /></div>
                     <div class="bio"><textarea name="printro" cols="50" rows="5" id="printro" 
                         placeholder="상점 설명을 입력해주세요. (최대 250자 입력 가능합니다)" maxlength="250" required></textarea></div>
-                        
                 </div>
-                <br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
                 <input type="submit" id="profileSubmit" value="상점 등록">
             </section>
         </form>
+        <script>
+            function previewImage(input) {
+                var preview = document.getElementById('previewImg');
+                var file = input.files[0];
+                var reader = new FileReader();
+    
+                reader.onloadend = function () {
+                    preview.style.display = 'block';
+                    preview.src = reader.result;
+                }
+    
+                if (file) {
+                    reader.readAsDataURL(file);
+                } else {
+                    preview.src = "";
+                }
+            }
+        </script>
     </main>
-    <script>
-        function previewImage(input) {
-            var preview = document.getElementById('previewImg');
-            var file = input.files[0];
-            var reader = new FileReader();
-
-            reader.onloadend = function () {
-                preview.style.display = 'block';
-                preview.src = reader.result;
-            }
-
-            if (file) {
-                reader.readAsDataURL(file);
-            } else {
-                preview.src = "";
-            }
-        }
-    </script>
+    
     <footer>By 오소와 오소플은 처음이지?</footer>
 </body>
 </html>

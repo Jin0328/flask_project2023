@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css?family=Sansation+Light&display=swap" rel="stylesheet" />
 <!--link href="main.css" rel="stylesheet" /-->
-<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='review_detail.css') }}">
 
 <title>Document</title>
 </head>
@@ -19,7 +19,7 @@
         <div class="상점사진"></div>
         <span class="구매자정보">· 20대 · 여성</span>
         <span class="리뷰제목">{{data.title}}</span>
-        <span class="리뷰내용">{{data.review}}</span>
+        <span class="리뷰내용">{{data.review}} <br> 별점 : {{ data.rate }} </span>
         <span class="v68_67">이 리뷰가 도움이 되었나요?</span>
 <div class="리뷰도움버튼">
 <button class="heartButton">
@@ -27,12 +27,13 @@
 </button>
 </div>
 
-<span class="리뷰도움수">12</span>
+<h3> {{ data.rate }} </h3>
+<!--span class="리뷰도움수"> {{ data.rate }} </span>
 <div class="v68_71"></div>
 <span class="상품옵션">상품 옵션 (곰돌이)</span>
 <div class="name"></div>
 <span class="판매자">판매자 | 송충이 상점</span>
-<div class="v68_76"></div></div>
+<div class="v68_76"></div></div-->
 </div>
 </body>
 {% endblock section %}
